@@ -3,12 +3,13 @@ export const site = {
   nome: 'Falcon Aquecedores',
   slogan: 'Conserto de Aquecedor a Gás',
   url: 'https://www.falconaquecedores.com.br',
-  cidade: 'São Paulo',
-  uf: 'SP',
-  // TODO: trocar pelos contatos reais
-  telefone: '(11) 99999-9999',
-  telefoneLink: '+5511999999999',
-  whatsapp: '5511999999999',
+  cidade: 'Rio de Janeiro',
+  uf: 'RJ',
+  regiao: 'Rio de Janeiro e região', // usado em textos: "atendemos todo o Rio de Janeiro e região"
+  telefone: '(21) 97562-5861',
+  telefoneBotao: '021 97562-5861', // como o número aparece nos botões de ligar
+  telefoneLink: '+5521975625861',
+  whatsapp: '5521975625861',
   whatsappMensagem: 'Olá! Vim pelo site da Falcon Aquecedores e gostaria de um orçamento.',
   email: 'contato@falconaquecedores.com.br',
   endereco: {
@@ -24,7 +25,7 @@ export const site = {
     { valor: '+10', rotulo: 'anos de experiência' },
     { valor: '+5.000', rotulo: 'aquecedores atendidos' },
     { valor: '90 dias', rotulo: 'de garantia no serviço' },
-    { valor: '5', rotulo: 'zonas de São Paulo' },
+    { valor: '7', rotulo: 'regiões atendidas' },
   ],
 };
 

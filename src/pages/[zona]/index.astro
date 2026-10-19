@@ -20,13 +20,13 @@ const msg = `Olá! Preciso de conserto de aquecedor a gás ${z.na}.`;
 const outras = zonas.filter((o) => o !== z);
 ---
 <Base
-  title={`Conserto de Aquecedor a Gás ${z.na} de SP`}
-  description={`Conserto de aquecedor a gás ${z.na} de São Paulo. Atendemos ${z.bairros.length} bairros com técnicos especializados, todas as marcas e garantia. Chame no WhatsApp.`}
+  title={`Conserto de Aquecedor a Gás ${z.na}${z.local.includes('Rio') ? '' : ' RJ'}`}
+  description={`Conserto de aquecedor a gás ${z.na}${z.local.includes('Rio') ? ' do Rio de Janeiro' : ''}. Atendemos ${z.bairros.length} bairros com técnicos especializados, todas as marcas e garantia. Chame no WhatsApp.`}
   breadcrumbs={[{ nome: 'Áreas Atendidas', url: '/areas-atendidas/' }, { nome: z.nome, url }]}
-  schema={[servicoSchema('Conserto de aquecedor a gás', z.descricao, `${z.nome}, ${site.cidade}`, url), faqSchema(faq)]}
+  schema={[servicoSchema('Conserto de aquecedor a gás', z.descricao, z.local, url), faqSchema(faq)]}
 >
   <Hero
-    etiqueta={`${z.nome} - ${site.cidade}`}
+    etiqueta={z.local}
     titulo="Conserto de Aquecedor a Gás"
     destaque={z.na}
     subtitulo={`Técnicos especializados atendendo ${z.bairros.length} bairros ${z.da}. Diagnóstico preciso, orçamento antes do serviço e garantia.`}
@@ -45,11 +45,16 @@ const outras = zonas.filter((o) => o !== z);
         <h2>Bairros atendidos {z.na}</h2>
         <p>Clique no seu bairro para ver o atendimento na sua região.</p>
       </header>
-      <ul class="bairros-grid">
-        {z.bairros.map((b) => (
-          <li><a href={urlBairro(b)}><Icon name="pin" size={16} /> Aquecedor a gás em {b.nome}</a></li>
-        ))}
-      </ul>
+      {z.grupos.map((g) => (
+        <div class="bairros-grupo">
+          {g.titulo && <h3>{g.titulo}</h3>}
+          <ul class="bairros-grid">
+            {g.bairros.map((b) => (
+              <li><a href={urlBairro(b)}><Icon name="pin" size={16} /> Aquecedor a gás {b.em}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   </section>
   <ServicosGrid titulo={`Serviços ${z.na}`} local={z.na} />

@@ -6,7 +6,7 @@ import ComoFunciona from '../../components/ComoFunciona.astro';
 import Marcas from '../../components/Marcas.astro';
 import Faq from '../../components/Faq.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
-import { todosBairros, urlZona, urlBairro, bairrosProximos, type Bairro } from '../../data/zonas';
+import { todosBairros, urlZona, urlBairro, bairrosProximos, emCompleto, type Bairro } from '../../data/zonas';
 import { servicos } from '../../data/servicos';
 import { site, whatsappUrl } from '../../data/site';
 import { faqBairro, faqSchema, servicoSchema, textoBairro } from '../../lib/conteudo';
@@ -17,49 +17,49 @@ export function getStaticPaths() {
 const { b } = Astro.props as { b: Bairro };
 const url = urlBairro(b);
 const faq = faqBairro(b);
-const msg = `Olá! Preciso de conserto de aquecedor a gás em ${b.nome}.`;
-const area = `${b.nome}, ${b.zona.nome}, ${site.cidade}`;
+const msg = `Olá! Preciso de conserto de aquecedor a gás ${b.em}.`;
+const area = emCompleto(b);
 ---
 <Base
-  title={`Conserto de Aquecedor a Gás em ${b.nome} - ${b.zona.nome} SP`}
-  description={`Conserto de aquecedor a gás em ${b.nome}, ${b.zona.nome} de São Paulo. Manutenção, instalação e limpeza de todas as marcas, com garantia. Orçamento pelo WhatsApp.`}
+  title={`Conserto de Aquecedor a Gás ${area}`}
+  description={`Conserto de aquecedor a gás ${area}. Manutenção, instalação e limpeza de todas as marcas, com garantia. Orçamento pelo WhatsApp.`}
   breadcrumbs={[
     { nome: 'Áreas Atendidas', url: '/areas-atendidas/' },
     { nome: b.zona.nome, url: urlZona(b.zona) },
     { nome: b.nome, url },
   ]}
-  schema={[servicoSchema('Conserto de aquecedor a gás', `Conserto de aquecedor a gás em ${b.nome}.`, area, url), faqSchema(faq)]}
+  schema={[servicoSchema('Conserto de aquecedor a gás', `Conserto de aquecedor a gás ${area}.`, b.nome, url), faqSchema(faq)]}
 >
   <Hero
-    etiqueta={`${b.nome} - ${b.zona.nome}`}
-    titulo="Conserto de Aquecedor a Gás em"
+    etiqueta={b.zona.local === b.local ? `${b.curto} - ${b.zona.nome}` : `${b.curto} - ${b.local}`}
+    titulo={`Conserto de Aquecedor a Gás ${b.em.split(' ')[0]}`}
     destaque={b.nome}
-    subtitulo={`Atendimento rápido em ${b.nome} e região ${b.zona.da}. Técnicos especializados, todas as marcas e garantia por escrito.`}
+    subtitulo={`Atendimento rápido ${b.em} e em toda a região ${b.zona.da}. Técnicos especializados, todas as marcas e garantia por escrito.`}
     mensagem={msg}
   />
   <section class="secao secao--clara">
     <div class="container conteudo">
       <article class="texto">
-        <h2>Assistência técnica de aquecedor a gás em {b.nome}</h2>
+        <h2>Assistência técnica de aquecedor a gás {b.em}</h2>
         {textoBairro(b).map((p) => <p>{p}</p>)}
-        <h2>Serviços em {b.nome}</h2>
+        <h2>Serviços {b.em}</h2>
         <ul class="servicos-lista">
           {servicos.map((s) => (
-            <li><a href={`/servicos/${s.slug}/`}><Icon name={s.icone} size={22} /><span><strong>{s.nome} em {b.nome}</strong><small>{s.resumo}</small></span></a></li>
+            <li><a href={`/servicos/${s.slug}/`}><Icon name={s.icone} size={22} /><span><strong>{s.nome} {b.em}</strong><small>{s.resumo}</small></span></a></li>
           ))}
         </ul>
       </article>
       <aside class="lateral">
         <div class="lateral__box">
-          <h2>Atendimento em {b.nome}</h2>
+          <h2>Atendimento {b.em}</h2>
           <p>Fale agora com um técnico e agende sua visita.</p>
           <a class="btn btn--primary" href={whatsappUrl(msg)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> WhatsApp</a>
-          <a class="btn btn--ghost-escuro" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={18} /> {site.telefone}</a>
+          <a class="btn btn--ghost-escuro" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={18} /> {site.telefoneBotao}</a>
         </div>
         <div class="lateral__box lateral__box--claro">
           <h2>Bairros próximos</h2>
           <ul class="lateral__links">
-            {bairrosProximos(b).map((v) => <li><a href={urlBairro(v)}><Icon name="pin" size={16} /> Aquecedor a gás em {v.nome}</a></li>)}
+            {bairrosProximos(b).map((v) => <li><a href={urlBairro(v)}><Icon name="pin" size={16} /> Aquecedor a gás {v.em}</a></li>)}
             <li><a href={urlZona(b.zona)}><Icon name="seta" size={16} /> Todos os bairros {b.zona.da}</a></li>
           </ul>
         </div>
@@ -68,6 +68,6 @@ const area = `${b.nome}, ${b.zona.nome}, ${site.cidade}`;
   </section>
   <ComoFunciona />
   <Marcas />
-  <Faq itens={faq} titulo={`Dúvidas sobre aquecedor a gás em ${b.nome}`} />
-  <CtaFinal mensagem={msg} titulo={`Sem água quente em ${b.nome}?`} />
+  <Faq itens={faq} titulo={`Dúvidas sobre aquecedor a gás ${b.em}`} />
+  <CtaFinal mensagem={msg} titulo={`Sem água quente ${b.em}?`} />
 </Base>

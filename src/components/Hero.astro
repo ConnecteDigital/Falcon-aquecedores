@@ -24,7 +24,7 @@ const {
       <p class="hero__sub">{subtitulo}</p>
       <div class="hero__btns">
         <a class="btn btn--primary btn--lg" href={whatsappUrl(mensagem)} target="_blank" rel="noopener"><Icon name="whatsapp" size={22} /> Orçamento pelo WhatsApp</a>
-        <a class="btn btn--ghost btn--lg" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={20} /> {site.telefone}</a>
+        <a class="btn btn--ghost btn--lg" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={20} /> {site.telefoneBotao}</a>
       </div>
       <ul class="hero__itens">
         {itens.map((i) => <li><Icon name="check" size={18} /> {i}</li>)}

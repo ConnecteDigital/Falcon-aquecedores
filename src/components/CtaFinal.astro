@@ -4,7 +4,7 @@ import { site, whatsappUrl } from '../data/site';
 interface Props { titulo?: string; texto?: string; mensagem?: string }
 const {
   titulo = 'Aquecedor com problema? Fale agora com a Falcon',
-  texto = 'Orçamento sem compromisso pelo WhatsApp. Atendimento rápido em toda São Paulo.',
+  texto = 'Orçamento sem compromisso pelo WhatsApp. Atendimento rápido no Rio de Janeiro e região.',
   mensagem,
 } = Astro.props;
 ---
@@ -16,7 +16,7 @@ const {
     </div>
     <div class="cta-final__btns">
       <a class="btn btn--branco btn--lg" href={whatsappUrl(mensagem)} target="_blank" rel="noopener"><Icon name="whatsapp" size={22} /> Chamar no WhatsApp</a>
-      <a class="btn btn--contorno btn--lg" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={20} /> Ligar agora</a>
+      <a class="btn btn--contorno btn--lg" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={20} /> {site.telefoneBotao}</a>
     </div>
   </div>
 </section>

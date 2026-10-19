@@ -7,8 +7,8 @@ import { zonas, todosBairros, urlZona } from '../data/zonas';
 import { site } from '../data/site';
 ---
 <Base
-  title="Áreas Atendidas: Conserto de Aquecedor a Gás em SP"
-  description={`A Falcon Aquecedores atende ${todosBairros.length} bairros de São Paulo: Zona Sul, Oeste, Norte, Leste e Centro. Encontre seu bairro e chame um técnico.`}
+  title="Áreas Atendidas: Conserto de Aquecedor a Gás no RJ"
+  description={`A Falcon Aquecedores atende ${todosBairros.length} bairros no Rio de Janeiro, Niterói, São Gonçalo e Baixada Fluminense. Encontre seu bairro e chame um técnico.`}
   breadcrumbs={[{ nome: 'Áreas Atendidas', url: '/areas-atendidas/' }]}
   schema={[{
     '@context': 'https://schema.org', '@type': 'ItemList',
@@ -18,8 +18,8 @@ import { site } from '../data/site';
   <Hero
     etiqueta="Áreas atendidas"
     titulo="Conserto de Aquecedor a Gás em"
-    destaque="toda São Paulo"
-    subtitulo={`Atendemos ${todosBairros.length} bairros em ${zonas.length} regiões da cidade. Encontre a sua zona e o seu bairro abaixo.`}
+    destaque="todo o Rio e região"
+    subtitulo={`Atendemos ${todosBairros.length} bairros em ${zonas.length} regiões. Encontre a sua região e o seu bairro abaixo.`}
   />
   <Areas completo titulo="Zonas e bairros atendidos" />
   <CtaFinal />

@@ -1,6 +1,6 @@
 # Falcon Aquecedores
 
-Site de conserto de aquecedor a gás em São Paulo, feito com [Astro](https://astro.build) (HTML estático, rápido e otimizado para SEO).
+Site de conserto de aquecedor a gás no Rio de Janeiro e região, feito com [Astro](https://astro.build) (HTML estático, rápido e otimizado para SEO).
 
 ## Comandos
 
@@ -16,9 +16,9 @@ Na Vercel ou Netlify o projeto é detectado automaticamente (framework **Astro**
 
 | O que | Arquivo |
 | --- | --- |
-| Telefone, WhatsApp, e-mail, horário, domínio, números | `src/data/site.ts` |
+| Telefone (inclusive o formato 021 dos botões), WhatsApp, e-mail, horário, domínio, números | `src/data/site.ts` |
 | Serviços (uma página para cada) | `src/data/servicos.ts` |
-| Zonas e bairros (uma página para cada) | `src/data/zonas.ts` |
+| Regiões, sub-regiões e bairros (uma página para cada) | `src/data/zonas.ts` |
 | Depoimentos de clientes | `src/data/depoimentos.ts` |
 | Cores e visual | `src/styles/global.css` (variáveis no topo) |
 
@@ -29,8 +29,8 @@ Se mudar o domínio, troque também em `astro.config.mjs` (`site`) e em `public/
 - `/` Página inicial
 - `/servicos/` e `/servicos/<servico>/` (ex.: `/servicos/conserto-de-aquecedor-a-gas/`)
 - `/areas-atendidas/` Todas as zonas e bairros
-- `/<zona>/` (ex.: `/zona-sul/`)
-- `/<zona>/<bairro>/` (ex.: `/zona-sul/moema/`)
+- `/<zona>/` (ex.: `/zona-sul/`, `/niteroi/`, `/baixada-fluminense/`)
+- `/<zona>/<bairro>/` (ex.: `/zona-sul/copacabana/`, `/zona-norte/tijuca/`)
 - `/sobre/`, `/contato/`
 
 ## SEO incluído

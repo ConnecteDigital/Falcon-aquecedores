@@ -3,7 +3,7 @@ import Icon from './Icon.astro';
 import { zonas, urlZona, urlBairro } from '../data/zonas';
 import { site } from '../data/site';
 interface Props { completo?: boolean; titulo?: string }
-const { completo = false, titulo = `Áreas atendidas em ${site.cidade}` } = Astro.props;
+const { completo = false, titulo = `Áreas atendidas no Rio de Janeiro e região` } = Astro.props;
 const LIMITE = 12;
 ---
 <section class="secao secao--clara" id="areas">
@@ -11,7 +11,7 @@ const LIMITE = 12;
     <header class="secao__head">
       <span class="eyebrow eyebrow--escuro">Onde atendemos</span>
       <h2>{titulo}</h2>
-      <p>Técnicos espalhados pela cidade para chegar rápido até você. Encontre sua zona e o seu bairro.</p>
+      <p>Técnicos espalhados pela região para chegar rápido até você. Encontre a sua região e o seu bairro.</p>
     </header>
     <div class="zonas">
       {zonas.map((z) => (

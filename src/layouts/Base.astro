@@ -27,7 +27,7 @@ const negocio = {
   '@type': 'HVACBusiness',
   '@id': `${site.url}/#empresa`,
   name: site.nome,
-  description: `${site.nome}: conserto, manutenção e instalação de aquecedor a gás em ${site.cidade}.`,
+  description: `${site.nome}: conserto, manutenção e instalação de aquecedor a gás no Rio de Janeiro, Niterói, São Gonçalo e Baixada Fluminense.`,
   url: site.url,
   logo: `${site.url}/img/logo-falcon-480.png`,
   image: og,
@@ -42,7 +42,7 @@ const negocio = {
     addressRegion: site.uf,
     addressCountry: 'BR',
   },
-  areaServed: zonas.map((z) => ({ '@type': 'AdministrativeArea', name: `${z.nome} de ${site.cidade}` })),
+  areaServed: zonas.map((z) => ({ '@type': 'Place', name: z.local })),
   openingHoursSpecification: site.horarioSchema.map((h) => ({
     '@type': 'OpeningHoursSpecification', dayOfWeek: h.dias, opens: h.abre, closes: h.fecha,
   })),
@@ -69,7 +69,7 @@ const allSchema = [negocio, ...(crumbsSchema ? [crumbsSchema] : []), ...schema];
     <link rel="canonical" href={canonical} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0b0b0c" />
-    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.region" content="BR-RJ" />
     <meta name="geo.placename" content={site.cidade} />
 
     <meta property="og:type" content="website" />

@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import { site, whatsappUrl } from '../data/site';
 interface Props { local?: string }
-const { local = site.cidade } = Astro.props;
+const { local = 'no Rio de Janeiro' } = Astro.props;
 ---
 <section class="secao secao--escura" id="sobre">
   <div class="container sobre">
@@ -18,9 +18,9 @@ const { local = site.cidade } = Astro.props;
     </div>
     <div class="sobre__txt">
       <span class="eyebrow">Sobre a Falcon</span>
-      <h2>Especialistas em aquecedor a gás em {local}</h2>
+      <h2>Especialistas em aquecedor a gás {local}</h2>
       <p>A <strong>{site.nome}</strong> nasceu para resolver um problema que ninguém quer ter: ficar sem água quente. Somos especializados em <strong>conserto, manutenção e instalação de aquecedores a gás</strong> de passagem e de acumulação, para residências, condomínios e comércios.</p>
-      <p>Trabalhamos com honestidade: diagnóstico antes do orçamento, preço combinado antes do serviço e garantia por escrito depois. Nossa equipe atende todas as zonas de {site.cidade} com agilidade, precisão e segurança, como um falcão.</p>
+      <p>Trabalhamos com honestidade: diagnóstico antes do orçamento, preço combinado antes do serviço e garantia por escrito depois. Nossa equipe atende o Rio de Janeiro, Niterói, São Gonçalo e a Baixada Fluminense com agilidade, precisão e segurança, como um falcão.</p>
       <ul class="lista-check">
         <li><Icon name="check" size={20} /> Atendimento a todas as marcas e modelos</li>
         <li><Icon name="check" size={20} /> Técnicos uniformizados e identificados</li>

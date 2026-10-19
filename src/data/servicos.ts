@@ -16,10 +16,10 @@ export const servicos: Servico[] = [
   {
     slug: 'conserto-de-aquecedor-a-gas',
     nome: 'Conserto de Aquecedor a Gás',
-    titulo: 'Conserto de Aquecedor a Gás em São Paulo',
+    titulo: 'Conserto de Aquecedor a Gás no Rio de Janeiro',
     descricao:
-      'Conserto de aquecedor a gás em São Paulo com técnico especializado. Diagnóstico preciso, peças originais e garantia. Chame no WhatsApp e agende hoje.',
-    h1: 'Conserto de Aquecedor a Gás em São Paulo',
+      'Conserto de aquecedor a gás no Rio de Janeiro com técnico especializado. Diagnóstico preciso, peças originais e garantia. Chame no WhatsApp e agende hoje.',
+    h1: 'Conserto de Aquecedor a Gás no Rio de Janeiro',
     resumo: 'Aquecedor não liga, desarma ou não esquenta? Diagnosticamos e consertamos no mesmo dia.',
     icone: 'ferramenta',
     intro: [
@@ -50,9 +50,9 @@ export const servicos: Servico[] = [
   {
     slug: 'manutencao-de-aquecedor-a-gas',
     nome: 'Manutenção de Aquecedor a Gás',
-    titulo: 'Manutenção de Aquecedor a Gás Preventiva em SP',
+    titulo: 'Manutenção de Aquecedor a Gás Preventiva no RJ',
     descricao:
-      'Manutenção preventiva de aquecedor a gás em São Paulo: limpeza, regulagem e testes de segurança. Mais economia de gás e vida útil para o seu aparelho.',
+      'Manutenção preventiva de aquecedor a gás no Rio de Janeiro: limpeza, regulagem e testes de segurança. Mais economia de gás e vida útil para o seu aparelho.',
     h1: 'Manutenção Preventiva de Aquecedor a Gás',
     resumo: 'Revisão completa que evita quebras, reduz o consumo de gás e aumenta a segurança.',
     icone: 'escudo',
@@ -83,9 +83,9 @@ export const servicos: Servico[] = [
   {
     slug: 'instalacao-de-aquecedor-a-gas',
     nome: 'Instalação de Aquecedor a Gás',
-    titulo: 'Instalação de Aquecedor a Gás em São Paulo',
+    titulo: 'Instalação de Aquecedor a Gás no Rio de Janeiro',
     descricao:
-      'Instalação de aquecedor a gás de passagem e de acumulação em São Paulo, dentro das normas técnicas. Ponto de gás, água e chaminé com garantia.',
+      'Instalação de aquecedor a gás de passagem e de acumulação no Rio de Janeiro, dentro das normas técnicas. Ponto de gás, água e chaminé com garantia.',
     h1: 'Instalação de Aquecedor a Gás',
     resumo: 'Instalação segura e dentro das normas, com ponto de gás, água e chaminé.',
     icone: 'instalacao',
@@ -118,7 +118,7 @@ export const servicos: Servico[] = [
     nome: 'Limpeza de Aquecedor a Gás',
     titulo: 'Limpeza de Aquecedor a Gás e Desincrustação',
     descricao:
-      'Limpeza de aquecedor a gás em São Paulo: queimador, serpentina e desincrustação de calcário. Água mais quente, menos gás e mais segurança.',
+      'Limpeza de aquecedor a gás no Rio de Janeiro: queimador, serpentina e desincrustação de calcário. Água mais quente, menos gás e mais segurança.',
     h1: 'Limpeza de Aquecedor a Gás',
     resumo: 'Remoção de fuligem e calcário para devolver o rendimento do seu aparelho.',
     icone: 'gota',
@@ -149,9 +149,9 @@ export const servicos: Servico[] = [
   {
     slug: 'conversao-de-aquecedor-gn-glp',
     nome: 'Conversão de Gás GN e GLP',
-    titulo: 'Conversão de Aquecedor a Gás GLP para GN em SP',
+    titulo: 'Conversão de Aquecedor a Gás GLP para GN no RJ',
     descricao:
-      'Conversão de aquecedor de GLP (gás de botijão) para GN (gás natural encanado) e vice-versa em São Paulo, com troca de injetores e regulagem.',
+      'Conversão de aquecedor de GLP (gás de botijão) para GN (gás natural encanado) e vice-versa no Rio de Janeiro, com troca de injetores e regulagem.',
     h1: 'Conversão de Aquecedor de GLP para Gás Natural',
     resumo: 'Mudou o tipo de gás? Convertimos seu aquecedor com segurança e regulagem.',
     icone: 'troca',
@@ -181,7 +181,7 @@ export const servicos: Servico[] = [
   {
     slug: 'troca-de-pecas-de-aquecedor-a-gas',
     nome: 'Troca de Peças de Aquecedor',
-    titulo: 'Troca de Peças de Aquecedor a Gás em São Paulo',
+    titulo: 'Troca de Peças de Aquecedor a Gás no Rio de Janeiro',
     descricao:
       'Troca de peças de aquecedor a gás: placa eletrônica, sensor, válvula de gás, fluxostato, ventilador e serpentina. Peças de qualidade e garantia.',
     h1: 'Troca de Peças de Aquecedor a Gás',
@@ -215,7 +215,7 @@ export const servicos: Servico[] = [
     nome: 'Conserto de Aquecedor de Acumulação',
     titulo: 'Conserto de Aquecedor de Acumulação (Boiler) a Gás',
     descricao:
-      'Conserto e manutenção de aquecedor de acumulação a gás (boiler) em São Paulo: termostato, queimador, ânodo de magnésio e vazamentos.',
+      'Conserto e manutenção de aquecedor de acumulação a gás (boiler) no Rio de Janeiro: termostato, queimador, ânodo de magnésio e vazamentos.',
     h1: 'Conserto de Aquecedor de Acumulação a Gás',
     resumo: 'Reparo de boilers e reservatórios a gás: termostato, queimador e vazamentos.',
     icone: 'tanque',
@@ -245,9 +245,9 @@ export const servicos: Servico[] = [
   {
     slug: 'reparo-de-vazamento-de-gas-em-aquecedor',
     nome: 'Vazamento de Gás e Água',
-    titulo: 'Reparo de Vazamento em Aquecedor a Gás em SP',
+    titulo: 'Reparo de Vazamento em Aquecedor a Gás no RJ',
     descricao:
-      'Vazamento de gás ou de água no aquecedor? Localizamos e reparamos o vazamento com teste de estanqueidade em São Paulo. Atendimento rápido.',
+      'Vazamento de gás ou de água no aquecedor? Localizamos e reparamos o vazamento com teste de estanqueidade no Rio de Janeiro. Atendimento rápido.',
     h1: 'Reparo de Vazamento em Aquecedor a Gás',
     resumo: 'Localização e reparo de vazamentos de gás e de água com teste de estanqueidade.',
     icone: 'alerta',
