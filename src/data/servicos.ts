@@ -253,39 +253,6 @@ export const servicos: Servico[] = [
     ],
   },
   {
-    slug: 'conserto-de-aquecedor-de-acumulacao',
-    nome: 'Conserto de Aquecedor de Acumulação',
-    titulo: 'Conserto de Aquecedor de Acumulação (Boiler) a Gás',
-    descricao:
-      'Conserto e manutenção de aquecedor de acumulação a gás (boiler) no Rio de Janeiro: termostato, queimador, ânodo de magnésio e vazamentos.',
-    h1: 'Conserto de Aquecedor de Acumulação a Gás',
-    resumo: 'Reparo de boilers e reservatórios a gás: termostato, queimador e vazamentos.',
-    icone: 'tanque',
-    foto: { src: '/img/servicos/boiler-reservatorio', alt: 'Reservatório de água quente de aquecedor de acumulação' },
-    intro: [
-      'Aquecedores de acumulação mantêm um reservatório de água quente e precisam de cuidados próprios, como a troca periódica do ânodo de magnésio e a limpeza do fundo do tanque.',
-      'Consertamos termostatos, queimadores, termopares e válvulas de segurança, e verificamos o estado do reservatório para evitar vazamentos.',
-    ],
-    sinais: [
-      'Reservatório não aquece ou demora horas',
-      'Piloto apaga com frequência',
-      'Água com cor ou cheiro diferente',
-      'Vazamento na base do reservatório',
-      'Válvula de segurança pingando',
-      'Barulho de estalos dentro do tanque',
-    ],
-    inclui: [
-      'Teste de termostato e termopar',
-      'Limpeza do queimador e da chaminé',
-      'Verificação e troca do ânodo de magnésio',
-      'Drenagem e limpeza do reservatório',
-      'Teste da válvula de segurança',
-    ],
-    faq: [
-      { p: 'O que é o ânodo de magnésio?', r: 'É uma peça de sacrifício que protege o reservatório contra corrosão. Deve ser verificada a cada revisão e trocada quando desgastada.' },
-    ],
-  },
-  {
     slug: 'reparo-de-vazamento-de-gas-em-aquecedor',
     nome: 'Vazamento de Gás e Água',
     titulo: 'Reparo de Vazamento em Aquecedor a Gás no RJ',

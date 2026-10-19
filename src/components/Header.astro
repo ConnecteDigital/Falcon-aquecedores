@@ -4,14 +4,6 @@ import { site, whatsappUrl } from '../data/site';
 import { servicos } from '../data/servicos';
 import { zonas, urlZona, urlBairro, URL_RIO } from '../data/zonas';
 ---
-<div class="topbar">
-  <div class="container topbar__in">
-    <span><Icon name="relogio" size={15} /> {site.horario}</span>
-    <span class="topbar__dir">
-      <a href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={15} /> {site.telefone}</a>
-    </span>
-  </div>
-</div>
 <header class="header" id="topo">
   <div class="container header__in">
     <a href="/" class="logo" aria-label={`${site.nome} - página inicial`}>

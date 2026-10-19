@@ -469,3 +469,23 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero__fundo { -webkit-mask-image: none; mask-image: none; }
   .hero--foto::after { background: linear-gradient(0deg, rgba(11, 11, 12, .95) 20%, rgba(11, 11, 12, .78) 100%); }
 }
+
+/* Card de serviço com botão de WhatsApp */
+.card-servico h3 a:hover { color: var(--laranja-esc); }
+.card-servico__acoes { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 4px; padding-bottom: 24px; }
+.card-servico { padding-bottom: 0; }
+
+/* Tela inicial: foto ocupando todo o fundo, sem a faixa preta */
+.hero--foto .hero__fundo { width: 100%; object-position: 70% 55%; -webkit-mask-image: none; mask-image: none; }
+.hero--foto::before { display: none; }
+.hero--foto::after { background: rgba(0, 0, 0, .38); }
+.hero--foto h1, .hero--foto .hero__sub, .hero--foto .hero__itens, .hero--foto .eyebrow { text-shadow: 0 2px 14px rgba(0, 0, 0, .7), 0 1px 3px rgba(0, 0, 0, .6); }
+.hero--foto .hero__sub { color: #fff; }
+@media (max-width: 960px) {
+  .hero--foto::after { background: rgba(0, 0, 0, .5); }
+}
+.hero--foto .eyebrow { color: #fff; }
+.hero--foto .eyebrow svg { color: var(--laranja-2); }
+.cards { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1180px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
