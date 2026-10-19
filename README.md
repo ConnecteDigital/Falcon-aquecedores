@@ -20,6 +20,7 @@ Na Vercel ou Netlify o projeto é detectado automaticamente (framework **Astro**
 | Serviços (uma página para cada) | `src/data/servicos.ts` |
 | Regiões, sub-regiões e bairros (uma página para cada) | `src/data/zonas.ts` |
 | Depoimentos de clientes | `src/data/depoimentos.ts` |
+| Fotos do carrossel "Serviços realizados" | pasta `src/assets/trabalhos/` |
 | Cores e visual | `src/styles/global.css` (variáveis no topo) |
 
 Se mudar o domínio, troque também em `astro.config.mjs` (`site`) e em `public/robots.txt`.
@@ -43,3 +44,15 @@ Se mudar o domínio, troque também em `astro.config.mjs` (`site`) e em `public/
 - Breadcrumbs, links internos entre serviços, zonas e bairros vizinhos
 - Textos dos bairros com variações para evitar conteúdo duplicado
 - HTML estático, CSS inline e quase nenhum JavaScript
+
+## Fotos do carrossel "Serviços realizados"
+
+Coloque as fotos na pasta `src/assets/trabalhos/` (formatos .jpg, .jpeg, .png ou .webp).
+Não precisa redimensionar: no build elas são convertidas para WebP e reduzidas automaticamente.
+
+- O nome do arquivo vira a legenda e o texto alternativo (bom para o Google). Use nomes descritivos,
+  separados por hífen, sem acentos: `instalacao-aquecedor-rinnai-copacabana.jpg` vira
+  "Instalação aquecedor rinnai copacabana".
+- As fotos aparecem em ordem alfabética do nome do arquivo.
+- Pelo site do GitHub: abra a pasta `src/assets/trabalhos`, clique em **Add file > Upload files**,
+  arraste as fotos e confirme o commit.

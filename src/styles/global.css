@@ -519,3 +519,27 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .btn-duplo { justify-content: flex-start; }
 }
 .hero--home .hero__fundo { object-position: 45% 75%; }
+
+/* Carrossel de serviços realizados */
+.carrossel { position: relative; }
+.carrossel__trilho { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 2px 12px; scrollbar-width: none; }
+.carrossel__trilho::-webkit-scrollbar { display: none; }
+.carrossel__item { flex: 0 0 calc((100% - 3 * 18px) / 4); scroll-snap-align: start; }
+.carrossel__item figure { margin: 0; border-radius: var(--raio); overflow: hidden; background: var(--preto-2); border: 1px solid var(--borda-escura); }
+.carrossel__item img { width: 100%; aspect-ratio: 3 / 4; height: auto; object-fit: cover; display: block; }
+.carrossel__item figcaption { padding: 12px 14px; font-size: 14px; color: #d6d6da; font-weight: 600; }
+.carrossel__btn { position: absolute; top: 42%; z-index: 2; width: 48px; height: 48px; border-radius: 50%; border: 0; display: grid; place-items: center; cursor: pointer; background: var(--laranja); color: #fff; box-shadow: 0 8px 20px rgba(0, 0, 0, .4); }
+.carrossel__btn:hover { background: var(--laranja-2); }
+.carrossel__btn--ant { left: -20px; }
+.carrossel__btn--ant svg { transform: rotate(180deg); }
+.carrossel__btn--prox { right: -20px; }
+.carrossel__cta { text-align: center; margin-top: 30px; }
+@media (max-width: 1080px) { .carrossel__item { flex-basis: calc((100% - 2 * 18px) / 3); } }
+@media (max-width: 760px) { .carrossel__item { flex-basis: calc((100% - 18px) / 2); } }
+@media (max-width: 480px) {
+  .carrossel__item { flex-basis: 82%; }
+  .carrossel__btn { width: 40px; height: 40px; }
+  .carrossel__btn--ant { left: -6px; }
+  .carrossel__btn--prox { right: -6px; }
+}
+.carrossel__item figure { height: 100%; }

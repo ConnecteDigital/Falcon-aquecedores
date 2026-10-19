@@ -1,0 +1,78 @@
+---
+// Carrossel de serviços realizados.
+// Para adicionar fotos, basta colocar arquivos .jpg, .jpeg, .png ou .webp na
+// pasta src/assets/trabalhos/. O nome do arquivo vira a descrição da foto
+// (ex.: "instalacao-aquecedor-rinnai-copacabana.jpg" →
+// "Instalação aquecedor rinnai copacabana"), então use nomes descritivos.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icon from './Icon.astro';
+import { whatsappUrl } from '../data/site';
+
+interface Props { titulo?: string }
+const { titulo = 'Serviços realizados' } = Astro.props;
+
+const arquivos = import.meta.glob<{ default: ImageMetadata }>('../assets/trabalhos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true });
+
+const ACENTOS: Record<string, string> = {
+  instalacao: 'instalação', manutencao: 'manutenção', conversao: 'conversão', chamine: 'chaminé',
+  eletronica: 'eletrônica', agua: 'água', gas: 'gás', aquecedor: 'aquecedor',
+};
+const descrever = (caminho: string) => {
+  const nome = caminho.split('/').pop()!.replace(/\.[^.]+$/, '');
+  const txt = nome.split(/[-_ ]+/).filter(Boolean).map((p) => ACENTOS[p.toLowerCase()] ?? p).join(' ');
+  return txt.charAt(0).toUpperCase() + txt.slice(1);
+};
+
+const fotos = Object.entries(arquivos)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([caminho, mod]) => ({ img: mod.default, alt: `${descrever(caminho)} - Falcon Aquecedores` }));
+---
+{fotos.length > 0 && (
+  <section class="secao secao--escura" id="trabalhos">
+    <div class="container">
+      <header class="secao__head">
+        <span class="eyebrow">Nosso trabalho</span>
+        <h2>{titulo}</h2>
+        <p>Alguns dos aquecedores que instalamos, consertamos e mantemos no Rio de Janeiro e região.</p>
+      </header>
+      <div class="carrossel" data-carrossel>
+        <button class="carrossel__btn carrossel__btn--ant" type="button" aria-label="Foto anterior" data-ant>
+          <Icon name="seta" size={22} />
+        </button>
+        <ul class="carrossel__trilho" data-trilho>
+          {fotos.map((f) => (
+            <li class="carrossel__item">
+              <figure>
+                <Image src={f.img} alt={f.alt} width={600} quality={72} loading="lazy" decoding="async" />
+                <figcaption>{f.alt.replace(' - Falcon Aquecedores', '')}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+        <button class="carrossel__btn carrossel__btn--prox" type="button" aria-label="Próxima foto" data-prox>
+          <Icon name="seta" size={22} />
+        </button>
+      </div>
+      <div class="carrossel__cta">
+        <a class="btn btn--wpp" href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Quero um orçamento</a>
+      </div>
+    </div>
+  </section>
+)}
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carrossel]').forEach((c) => {
+    const trilho = c.querySelector<HTMLElement>('[data-trilho]')!;
+    const passo = () => (trilho.querySelector<HTMLElement>('.carrossel__item')?.offsetWidth ?? 300) + 18;
+    const fim = () => trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 5;
+    const proximo = () => trilho.scrollBy({ left: fim() ? -trilho.scrollWidth : passo(), behavior: 'smooth' });
+    c.querySelector('[data-prox]')?.addEventListener('click', proximo);
+    c.querySelector('[data-ant]')?.addEventListener('click', () => trilho.scrollBy({ left: -passo(), behavior: 'smooth' }));
+    // Avança sozinho, pausando quando o visitante interage
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let pausado = false;
+    ['mouseenter', 'touchstart', 'focusin'].forEach((e) => c.addEventListener(e, () => (pausado = true), { passive: true }));
+    c.addEventListener('mouseleave', () => (pausado = false));
+    setInterval(() => { if (!pausado && !document.hidden) proximo(); }, 4000);
+  });
+</script>
