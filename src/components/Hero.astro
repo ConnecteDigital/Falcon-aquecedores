@@ -15,8 +15,19 @@ const {
   itens = ['Atendimento no mesmo dia', 'Todas as marcas', 'Garantia no serviço'],
 } = Astro.props;
 ---
-<section class:list={['hero', { 'hero--grande': grande }]}>
-  <div class="hero__glow" aria-hidden="true"></div>
+<section class:list={['hero', { 'hero--grande hero--foto': grande }]}>
+  {grande ? (
+    <img
+      class="hero__fundo"
+      src="/img/hero-tecnico-960.webp"
+      srcset="/img/hero-tecnico-600.webp 600w, /img/hero-tecnico-960.webp 960w"
+      sizes="(max-width: 960px) 100vw, 55vw"
+      width="960" height="1280" alt="Técnico da Falcon Aquecedores fazendo manutenção em aquecedor a gás"
+      fetchpriority="high" decoding="async"
+    />
+  ) : (
+    <div class="hero__glow" aria-hidden="true"></div>
+  )}
   <div class="container hero__in">
     <div class="hero__txt">
       <span class="eyebrow"><Icon name="chama" size={16} /> {etiqueta}</span>
@@ -30,15 +41,7 @@ const {
         {itens.map((i) => <li><Icon name="check" size={18} /> {i}</li>)}
       </ul>
     </div>
-    {grande ? (
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hero__circulo">
-          <img src="/img/logo-falcon-480.webp" width="405" height="422" alt="" fetchpriority="high" />
-        </div>
-        <div class="hero__card hero__card--a"><Icon name="medalha" size={26} /><div><strong>Técnicos especializados</strong><span>Aquecedores a gás</span></div></div>
-        <div class="hero__card hero__card--b"><Icon name="escudo" size={26} /><div><strong>Garantia por escrito</strong><span>Em todos os serviços</span></div></div>
-      </div>
-    ) : (
+    {!grande && (
       <div class="hero__mini" aria-hidden="true">
         <img src="/img/logo-falcon-480.webp" width="405" height="422" alt="" fetchpriority="high" />
       </div>

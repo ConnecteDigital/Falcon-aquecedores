@@ -448,3 +448,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .cards { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1080px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+
+/* Tela inicial com foto de fundo */
+.hero--foto { background: var(--preto); }
+.hero--foto::before { z-index: 1; }
+.hero__fundo { position: absolute; top: 0; right: 0; width: 55%; height: 100%; object-fit: cover; object-position: center 45%; }
+.hero--foto::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, var(--preto) 0%, var(--preto) 42%, rgba(11, 11, 12, .75) 55%, rgba(11, 11, 12, .2) 75%, rgba(11, 11, 12, .1) 100%),
+    linear-gradient(0deg, rgba(11, 11, 12, .6), transparent 30%);
+}
+.hero--foto .hero__in { z-index: 2; grid-template-columns: minmax(0, 680px); }
+@media (max-width: 960px) {
+  .hero__fundo { width: 100%; object-position: 70% 35%; }
+  .hero--foto::after { background: linear-gradient(0deg, rgba(11, 11, 12, .95) 20%, rgba(11, 11, 12, .78) 100%); }
+}
+.hero__fundo { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 40%); mask-image: linear-gradient(90deg, transparent 0%, #000 40%); }
+.hero--foto::after { background: linear-gradient(90deg, var(--preto) 0%, rgba(11, 11, 12, .85) 45%, rgba(11, 11, 12, .2) 75%, rgba(11, 11, 12, .1) 100%), linear-gradient(0deg, rgba(11, 11, 12, .6), transparent 30%); }
+@media (max-width: 960px) {
+  .hero__fundo { -webkit-mask-image: none; mask-image: none; }
+  .hero--foto::after { background: linear-gradient(0deg, rgba(11, 11, 12, .95) 20%, rgba(11, 11, 12, .78) 100%); }
+}

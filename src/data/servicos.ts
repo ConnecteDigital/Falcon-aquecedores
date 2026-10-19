@@ -58,7 +58,7 @@ export const servicos: Servico[] = [
     h1: 'Manutenção Preventiva de Aquecedor a Gás',
     resumo: 'Revisão completa que evita quebras, reduz o consumo de gás e aumenta a segurança.',
     icone: 'escudo',
-    foto: { src: '/img/servicos/aquecedor-aberto-reparo', alt: 'Aquecedor a gás aberto durante manutenção preventiva', retrato: true },
+    foto: { src: '/img/servicos/aquecedor-rinnai-branco', alt: 'Aquecedor a gás Rinnai digital após manutenção preventiva', retrato: true },
     intro: [
       'Os fabricantes recomendam revisar o aquecedor a gás pelo menos uma vez por ano. A manutenção preventiva evita que pequenos desgastes virem defeitos caros e mantém o aparelho queimando o gás de forma limpa e segura.',
       'Na visita, desmontamos, limpamos e regulamos os principais componentes, medimos a combustão e conferimos a chaminé. No fim, você recebe um relatório com o estado do aparelho.',
@@ -92,7 +92,7 @@ export const servicos: Servico[] = [
     h1: 'Instalação de Aquecedor a Gás',
     resumo: 'Instalação segura e dentro das normas, com ponto de gás, água e chaminé.',
     icone: 'instalacao',
-    foto: { src: '/img/servicos/aquecedor-instalado-rinnai', alt: 'Aquecedor a gás digital Rinnai instalado com exaustão e conexões', retrato: true },
+    foto: { src: '/img/servicos/aquecedor-lorenzetti-instalado', alt: 'Aquecedor a gás Lorenzetti instalado com duto de exaustão e conexões novas', retrato: true },
     intro: [
       'Uma instalação mal feita compromete a segurança e a garantia do fabricante. A Falcon Aquecedores instala seu aquecedor a gás seguindo as normas técnicas (ABNT NBR 13103), com ventilação e exaustão adequadas.',
       'Ajudamos a escolher o modelo ideal para o número de pontos de água da casa e cuidamos de tudo: fixação, conexões de gás e água, duto de exaustão e testes finais.',
@@ -126,7 +126,7 @@ export const servicos: Servico[] = [
     h1: 'Limpeza de Aquecedor a Gás',
     resumo: 'Remoção de fuligem e calcário para devolver o rendimento do seu aparelho.',
     icone: 'gota',
-    foto: { src: '/img/servicos/aquecedor-aberto-reparo', alt: 'Serpentina e queimador de aquecedor a gás expostos para limpeza', retrato: true },
+    foto: { src: '/img/servicos/aquecedor-lorenzetti-digital', alt: 'Aquecedor a gás Lorenzetti digital funcionando após limpeza', retrato: true },
     intro: [
       'Com o tempo, a serpentina do aquecedor acumula calcário e o queimador acumula fuligem. O resultado é água menos quente, mais consumo de gás e risco de superaquecimento.',
       'Fazemos a limpeza completa e a desincrustação da serpentina com produtos próprios, sem danificar os componentes, e devolvemos o aparelho regulado.',
@@ -160,7 +160,7 @@ export const servicos: Servico[] = [
     h1: 'Conversão de Aquecedor de GLP para Gás Natural',
     resumo: 'Mudou o tipo de gás? Convertimos seu aquecedor com segurança e regulagem.',
     icone: 'troca',
-    foto: { src: '/img/servicos/aquecedor-instalado-rinnai', alt: 'Aquecedor a gás instalado após conversão de GLP para gás natural', retrato: true },
+    foto: { src: '/img/servicos/aquecedor-rinnai-prata-gas', alt: 'Aquecedor a gás Rinnai com ligações de gás, água quente e água fria identificadas', retrato: true },
     intro: [
       'Quando o prédio ou a casa passa do gás de botijão (GLP) para o gás natural encanado (GN), o aquecedor precisa ser convertido. Usar o aparelho sem conversão é perigoso e danifica os componentes.',
       'Trocamos os injetores e o que mais for necessário conforme o kit do fabricante, regulamos a pressão e testamos a combustão.',
@@ -294,7 +294,7 @@ export const servicos: Servico[] = [
     h1: 'Reparo de Vazamento em Aquecedor a Gás',
     resumo: 'Localização e reparo de vazamentos de gás e de água com teste de estanqueidade.',
     icone: 'alerta',
-    foto: { src: '/img/servicos/tecnico-conserto-aquecedor', alt: 'Técnico verificando conexões de gás e água do aquecedor', retrato: true },
+    foto: { src: '/img/servicos/tecnico-falcon-bosch', alt: 'Técnico da Falcon Aquecedores verificando conexões de aquecedor a gás Bosch', retrato: true },
     intro: [
       'Cheiro de gás é sinal de alerta: feche o registro, abra as janelas, não acione interruptores e nos chame. Vazamentos de água também danificam o aparelho e a parede.',
       'Usamos detector eletrônico e teste de estanqueidade para localizar o ponto exato e fazemos o reparo das conexões, flexíveis, válvulas ou serpentina.',
