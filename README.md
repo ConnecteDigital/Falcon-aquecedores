@@ -47,12 +47,15 @@ Se mudar o domínio, troque também em `astro.config.mjs` (`site`) e em `public/
 
 ## Fotos do carrossel "Serviços realizados"
 
-Coloque as fotos na pasta `src/assets/trabalhos/` (formatos .jpg, .jpeg, .png ou .webp).
+Coloque as fotos (.jpg, .jpeg, .png, .webp) e vídeos curtos (.mp4, até uns 10 MB) na pasta
+`src/assets/trabalhos/`.
 Não precisa redimensionar: no build elas são convertidas para WebP e reduzidas automaticamente.
 
 - O nome do arquivo vira a legenda e o texto alternativo (bom para o Google). Use nomes descritivos,
   separados por hífen, sem acentos: `instalacao-aquecedor-rinnai-copacabana.jpg` vira
   "Instalação aquecedor rinnai copacabana".
-- As fotos aparecem em ordem alfabética do nome do arquivo.
+- Os itens aparecem em ordem alfabética. Um número no começo do nome (`01-`, `03a-`) define a posição
+  e não aparece na legenda.
+- Capa de vídeo (opcional): uma imagem em `src/assets/trabalhos/capas/` com o mesmo nome do vídeo.
 - Pelo site do GitHub: abra a pasta `src/assets/trabalhos`, clique em **Add file > Upload files**,
   arraste as fotos e confirme o commit.

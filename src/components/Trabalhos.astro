@@ -1,10 +1,13 @@
 ---
 // Carrossel de serviços realizados.
-// Para adicionar fotos, basta colocar arquivos .jpg, .jpeg, .png ou .webp na
-// pasta src/assets/trabalhos/. O nome do arquivo vira a descrição da foto
-// (ex.: "instalacao-aquecedor-rinnai-copacabana.jpg" →
-// "Instalação aquecedor rinnai copacabana"), então use nomes descritivos.
-import { Image } from 'astro:assets';
+// Para adicionar fotos (.jpg, .jpeg, .png, .webp) ou vídeos curtos (.mp4), basta
+// colocar os arquivos na pasta src/assets/trabalhos/. O nome do arquivo vira a
+// descrição (ex.: "instalacao-aquecedor-rinnai-copacabana.jpg" →
+// "Instalação aquecedor Rinnai copacabana"), então use nomes descritivos.
+// Os itens seguem a ordem alfabética; um número no início ("01-", "03a-")
+// define a posição e não aparece na legenda. Para um vídeo, dá para colocar
+// uma imagem de capa em capas/ com o mesmo nome (ex.: capas/meu-video.jpg).
+import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Icon from './Icon.astro';
 import { whatsappUrl } from '../data/site';
@@ -13,20 +16,34 @@ interface Props { titulo?: string }
 const { titulo = 'Serviços realizados' } = Astro.props;
 
 const arquivos = import.meta.glob<{ default: ImageMetadata }>('../assets/trabalhos/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', { eager: true });
+const videos = import.meta.glob<string>('../assets/trabalhos/*.{mp4,MP4,webm}', { eager: true, query: '?url', import: 'default' });
+// Capa opcional de cada vídeo: capas/<mesmo nome do vídeo>.jpg
+const capas = import.meta.glob<{ default: ImageMetadata }>('../assets/trabalhos/capas/*.{jpg,jpeg,png,webp}', { eager: true });
+const capaDe = async (video: string) => {
+  const base = video.split('/').pop()!.replace(/\.[^.]+$/, '');
+  const achada = Object.entries(capas).find(([c]) => c.split('/').pop()!.replace(/\.[^.]+$/, '') === base);
+  return achada ? (await getImage({ src: achada[1].default, width: 600, quality: 70 })).src : undefined;
+};
 
-const ACENTOS: Record<string, string> = {
+const PALAVRAS: Record<string, string> = {
   instalacao: 'instalação', manutencao: 'manutenção', conversao: 'conversão', chamine: 'chaminé',
-  eletronica: 'eletrônica', agua: 'água', gas: 'gás', aquecedor: 'aquecedor',
+  eletronica: 'eletrônica', agua: 'água', gas: 'gás', area: 'área', servico: 'serviço',
+  flexivel: 'flexível', exaustao: 'exaustão', acumulacao: 'acumulação', condominio: 'condomínio',
+  maquinas: 'máquinas', reservatorio: 'reservatório', termico: 'térmico', analogico: 'analógico',
+  glp: 'GLP', gn: 'GN', rinnai: 'Rinnai', lorenzetti: 'Lorenzetti', komeco: 'Komeco', kobe: 'Kobe',
+  bosch: 'Bosch', cumulus: 'Cumulus', orbis: 'Orbis', sakura: 'Sakura', inova: 'Inova',
 };
 const descrever = (caminho: string) => {
-  const nome = caminho.split('/').pop()!.replace(/\.[^.]+$/, '');
-  const txt = nome.split(/[-_ ]+/).filter(Boolean).map((p) => ACENTOS[p.toLowerCase()] ?? p).join(' ');
+  const nome = caminho.split('/').pop()!.replace(/\.[^.]+$/, '').replace(/^\d+[a-z]?[-_ ]+/i, '');
+  const txt = nome.split(/[-_ ]+/).filter(Boolean).map((p) => PALAVRAS[p.toLowerCase()] ?? p).join(' ');
   return txt.charAt(0).toUpperCase() + txt.slice(1);
 };
 
-const fotos = Object.entries(arquivos)
-  .sort(([a], [b]) => a.localeCompare(b))
-  .map(([caminho, mod]) => ({ img: mod.default, alt: `${descrever(caminho)} - Falcon Aquecedores` }));
+type Item = { chave: string; legenda: string; img?: ImageMetadata; video?: string; capa?: string };
+const fotos: Item[] = [
+  ...Object.entries(arquivos).map(([c, mod]) => ({ chave: c, legenda: descrever(c), img: mod.default })),
+  ...(await Promise.all(Object.entries(videos).map(async ([c, url]) => ({ chave: c, legenda: descrever(c), video: url, capa: await capaDe(c) })))),
+].sort((a, b) => a.chave.localeCompare(b.chave));
 ---
 {fotos.length > 0 && (
   <section class="secao secao--escura" id="trabalhos">
@@ -44,8 +61,12 @@ const fotos = Object.entries(arquivos)
           {fotos.map((f) => (
             <li class="carrossel__item">
               <figure>
-                <Image src={f.img} alt={f.alt} width={600} quality={72} loading="lazy" decoding="async" />
-                <figcaption>{f.alt.replace(' - Falcon Aquecedores', '')}</figcaption>
+                {f.img ? (
+                  <Image src={f.img} alt={`${f.legenda} - Falcon Aquecedores`} width={600} quality={72} loading="lazy" decoding="async" />
+                ) : (
+                  <video src={`${f.video}#t=0.5`} poster={f.capa} controls playsinline muted preload={f.capa ? 'none' : 'metadata'} aria-label={f.legenda}></video>
+                )}
+                <figcaption>{f.video && <span class="carrossel__tag">Vídeo</span>}{f.legenda}</figcaption>
               </figure>
             </li>
           ))}
@@ -72,7 +93,11 @@ const fotos = Object.entries(arquivos)
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let pausado = false;
     ['mouseenter', 'touchstart', 'focusin'].forEach((e) => c.addEventListener(e, () => (pausado = true), { passive: true }));
-    c.addEventListener('mouseleave', () => (pausado = false));
+    c.addEventListener('mouseleave', () => (pausado = [...c.querySelectorAll('video')].some((v) => !v.paused)));
+    c.querySelectorAll('video').forEach((v) => {
+      v.addEventListener('play', () => (pausado = true));
+      v.addEventListener('ended', () => (pausado = false));
+    });
     setInterval(() => { if (!pausado && !document.hidden) proximo(); }, 4000);
   });
 </script>
