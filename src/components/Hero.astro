@@ -28,7 +28,7 @@ const {
     <div class="container hero__in">
       <div class="hero__txt">
         <span class="hero__eyebrow">{etiqueta}</span>
-        <h1>{titulo}</h1>
+        <h1>{titulo}{destaque && <> <span class="txt-laranja">{destaque}</span></>}</h1>
         <p class="hero__sub" set:html={subtitulo} />
         <ul class="hero__lista">
           {itens.map((i) => <li><Icon name="selo" size={20} /> {i}</li>)}
