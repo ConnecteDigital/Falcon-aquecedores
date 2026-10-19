@@ -12,13 +12,12 @@ import { zonas } from '../data/zonas';
       <p>Preencha os dados e envie direto para o nosso WhatsApp. Respondemos em poucos minutos no horário de atendimento.</p>
       <ul class="contato__lista">
         <li><Icon name="telefone" size={22} /><div><span>Telefone</span><a href={`tel:${site.telefoneLink}`}>{site.telefone}</a></div></li>
-        <li><Icon name="email" size={22} /><div><span>E-mail</span><a href={`mailto:${site.email}`}>{site.email}</a></div></li>
         <li><Icon name="relogio" size={22} /><div><span>Horário</span><strong>{site.horario}</strong></div></li>
       </ul>
     </div>
     <form class="form" id="form-orcamento" data-whatsapp={site.whatsapp}>
       <label>Nome<input name="nome" required autocomplete="name" placeholder="Seu nome" /></label>
-      <label>Telefone / WhatsApp<input name="telefone" required type="tel" autocomplete="tel" placeholder="(11) 90000-0000" /></label>
+      <label>Telefone / WhatsApp<input name="telefone" required type="tel" autocomplete="tel" placeholder="(21) 90000-0000" /></label>
       <div class="form__linha">
         <label>Serviço
           <select name="servico">

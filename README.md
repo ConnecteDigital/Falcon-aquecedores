@@ -16,7 +16,7 @@ Na Vercel ou Netlify o projeto é detectado automaticamente (framework **Astro**
 
 | O que | Arquivo |
 | --- | --- |
-| Telefone (inclusive o formato 021 dos botões), WhatsApp, e-mail, horário, domínio, números | `src/data/site.ts` |
+| Telefone (inclusive o formato 021 dos botões), WhatsApp, horário, domínio, números | `src/data/site.ts` |
 | Serviços (uma página para cada) | `src/data/servicos.ts` |
 | Regiões, sub-regiões e bairros (uma página para cada) | `src/data/zonas.ts` |
 | Depoimentos de clientes | `src/data/depoimentos.ts` |

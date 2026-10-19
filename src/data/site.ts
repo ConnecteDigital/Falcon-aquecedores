@@ -11,7 +11,6 @@ export const site = {
   telefoneLink: '+5521975625861',
   whatsapp: '5521975625861',
   whatsappMensagem: 'Olá! Vim pelo site da Falcon Aquecedores e gostaria de um orçamento.',
-  email: 'contato@falconaquecedores.com.br',
   endereco: {
     rua: '',
     bairro: '',

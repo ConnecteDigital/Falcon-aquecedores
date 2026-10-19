@@ -29,6 +29,14 @@ const msg = `Olá! Vim pelo site e preciso de ${s.nome.toLowerCase()}.`;
   <section class="secao secao--clara">
     <div class="container conteudo">
       <article class="texto">
+        <figure class:list={['foto-servico', { 'is-produto': !s.foto.retrato }]}>
+          <img
+            src={`${s.foto.src}-900.webp`}
+            srcset={`${s.foto.src}-480.webp 480w, ${s.foto.src}-900.webp 900w`}
+            sizes="(max-width: 960px) 100vw, 760px"
+            alt={s.foto.alt} width="900" height={s.foto.retrato ? 1200 : 601} loading="eager" decoding="async"
+          />
+        </figure>
         <h2>{s.nome} com a Falcon Aquecedores</h2>
         {s.intro.map((p) => <p>{p}</p>)}
         <h2>Quando chamar um técnico?</h2>

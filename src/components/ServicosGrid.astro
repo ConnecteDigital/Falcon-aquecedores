@@ -15,6 +15,9 @@ const lista = servicos.filter((s) => s.slug !== excluir);
     <div class="cards">
       {lista.map((s) => (
         <a class="card-servico" href={`/servicos/${s.slug}/`}>
+          <span class:list={['card-servico__foto', { 'is-produto': !s.foto.retrato }]}>
+            <img src={`${s.foto.src}-480.webp`} alt={s.foto.alt} width="480" height="360" loading="lazy" decoding="async" />
+          </span>
           <span class="card-servico__icone"><Icon name={s.icone} size={30} /></span>
           <h3>{s.nome}{local && <span class="sr-only"> {local}</span>}</h3>
           <p>{s.resumo}</p>

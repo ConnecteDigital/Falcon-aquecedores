@@ -6,14 +6,13 @@ const { local = 'no Rio de Janeiro' } = Astro.props;
 ---
 <section class="secao secao--escura" id="sobre">
   <div class="container sobre">
-    <div class="sobre__img" aria-hidden="true">
-      <div class="aquecedor">
-        <div class="aquecedor__corpo">
-          <span class="aquecedor__visor">42°</span>
-          <span class="aquecedor__chama"><Icon name="chama" size={48} /></span>
-        </div>
-        <div class="aquecedor__canos"><i></i><i></i><i></i></div>
-      </div>
+    <div class="sobre__img sobre__img--foto">
+      <img
+        src="/img/servicos/tecnico-conserto-aquecedor-900.webp"
+        srcset="/img/servicos/tecnico-conserto-aquecedor-480.webp 480w, /img/servicos/tecnico-conserto-aquecedor-900.webp 900w"
+        sizes="(max-width: 960px) 100vw, 520px"
+        alt="Técnico da Falcon Aquecedores consertando um aquecedor a gás" width="900" height="1200" loading="lazy" decoding="async"
+      />
       <div class="sobre__selo"><strong>{site.numeros[0].valor}</strong><span>{site.numeros[0].rotulo}</span></div>
     </div>
     <div class="sobre__txt">
