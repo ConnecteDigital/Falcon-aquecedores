@@ -6,7 +6,7 @@ import ComoFunciona from '../../components/ComoFunciona.astro';
 import Marcas from '../../components/Marcas.astro';
 import Faq from '../../components/Faq.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
-import { todosBairros, urlZona, urlBairro, bairrosProximos, emCompleto, type Bairro } from '../../data/zonas';
+import { URL_RIO, zonasRio, todosBairros, urlZona, urlBairro, bairrosProximos, emCompleto, type Bairro } from '../../data/zonas';
 import { servicos } from '../../data/servicos';
 import { site, whatsappUrl } from '../../data/site';
 import { faqBairro, faqSchema, servicoSchema, textoBairro } from '../../lib/conteudo';
@@ -24,7 +24,7 @@ const area = emCompleto(b);
   title={`Conserto de Aquecedor a Gás ${area}`}
   description={`Conserto de aquecedor a gás ${area}. Manutenção, instalação e limpeza de todas as marcas, com garantia. Orçamento pelo WhatsApp.`}
   breadcrumbs={[
-    { nome: 'Áreas Atendidas', url: '/areas-atendidas/' },
+    ...(zonasRio.includes(b.zona) ? [{ nome: 'Rio de Janeiro', url: URL_RIO }] : []),
     { nome: b.zona.nome, url: urlZona(b.zona) },
     { nome: b.nome, url },
   ]}

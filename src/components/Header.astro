@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import { site, whatsappUrl } from '../data/site';
 import { servicos } from '../data/servicos';
-import { zonas, urlZona } from '../data/zonas';
+import { zonas, urlZona, urlBairro, URL_RIO } from '../data/zonas';
 ---
 <div class="topbar">
   <div class="container topbar__in">
@@ -29,11 +29,28 @@ import { zonas, urlZona } from '../data/zonas';
             {servicos.map((s) => <li><a href={`/servicos/${s.slug}/`}>{s.nome}</a></li>)}
           </ul>
         </li>
-        <li class="has-sub">
-          <a href="/areas-atendidas/">Áreas Atendidas</a>
-          <ul class="sub">
-            {zonas.map((z) => <li><a href={urlZona(z)}>{z.nome}</a></li>)}
-          </ul>
+        <li class="has-sub has-mega">
+          <a href="/#areas">Áreas Atendidas</a>
+          <div class="mega">
+            <a class="mega__topo" href={URL_RIO}>Rio de Janeiro — todas as zonas e bairros <Icon name="seta" size={16} /></a>
+            <div class="mega__corpo">
+              <ul class="mega__zonas">
+                {zonas.map((z, i) => (
+                  <li><a class:list={['mega__zona', { 'is-ativo': i === 0 }]} href={urlZona(z)} data-zona={z.slug}>{z.nome} <span aria-hidden="true">›</span></a></li>
+                ))}
+              </ul>
+              <div class="mega__paineis">
+                {zonas.map((z, i) => (
+                  <div class:list={['mega__painel', { 'is-ativo': i === 0 }]} data-zona={z.slug}>
+                    <a class="mega__ver" href={urlZona(z)}>Ver página: {z.nome} <span aria-hidden="true">›</span></a>
+                    <ul class="mega__bairros">
+                      {z.bairros.map((b) => <li><a href={urlBairro(b)}><Icon name="pin" size={15} /> {b.nome}</a></li>)}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </li>
         <li><a href="/sobre/">Sobre</a></li>
         <li><a href="/contato/">Contato</a></li>
@@ -50,5 +67,16 @@ import { zonas, urlZona } from '../data/zonas';
   btn?.addEventListener('click', () => {
     const open = nav?.classList.toggle('is-open');
     btn.setAttribute('aria-expanded', String(!!open));
+  });
+  // Menu de áreas: ao passar o mouse numa zona, mostra os bairros dela
+  const ativar = (slug: string) => {
+    document.querySelectorAll<HTMLElement>('.mega__zona, .mega__painel').forEach((el) => {
+      el.classList.toggle('is-ativo', el.dataset.zona === slug);
+    });
+  };
+  document.querySelectorAll<HTMLElement>('.mega__zona').forEach((el) => {
+    const go = () => ativar(el.dataset.zona!);
+    el.addEventListener('mouseenter', go);
+    el.addEventListener('focus', go);
   });
 </script>

@@ -5,6 +5,9 @@ import { site, whatsappUrl } from '../data/site';
 <a class="wpp-float" href={whatsappUrl()} target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
   <Icon name="whatsapp" size={32} />
 </a>
+<a class="ligar-float" href={`tel:${site.telefoneLink}`} aria-label={`Ligar para ${site.telefoneBotao}`}>
+  <Icon name="telefone" size={28} />
+</a>
 <div class="mobile-cta">
   <a href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={18} /> {site.telefoneBotao}</a>
   <a href={whatsappUrl()} target="_blank" rel="noopener" class="is-wpp"><Icon name="whatsapp" size={18} /> WhatsApp</a>

@@ -6,7 +6,7 @@ import ServicosGrid from '../../components/ServicosGrid.astro';
 import Diferenciais from '../../components/Diferenciais.astro';
 import Faq from '../../components/Faq.astro';
 import CtaFinal from '../../components/CtaFinal.astro';
-import { zonas, urlZona, urlBairro, type Zona } from '../../data/zonas';
+import { zonas, urlZona, urlBairro, URL_RIO, zonasRio, type Zona } from '../../data/zonas';
 import { site } from '../../data/site';
 import { faqSchema, faqZona, servicoSchema, textoZona } from '../../lib/conteudo';
 
@@ -22,7 +22,7 @@ const outras = zonas.filter((o) => o !== z);
 <Base
   title={`Conserto de Aquecedor a Gás ${z.na}${z.local.includes('Rio') ? '' : ' RJ'}`}
   description={`Conserto de aquecedor a gás ${z.na}${z.local.includes('Rio') ? ' do Rio de Janeiro' : ''}. Atendemos ${z.bairros.length} bairros com técnicos especializados, todas as marcas e garantia. Chame no WhatsApp.`}
-  breadcrumbs={[{ nome: 'Áreas Atendidas', url: '/areas-atendidas/' }, { nome: z.nome, url }]}
+  breadcrumbs={[...(zonasRio.includes(z) ? [{ nome: 'Rio de Janeiro', url: URL_RIO }] : []), { nome: z.nome, url }]}
   schema={[servicoSchema('Conserto de aquecedor a gás', z.descricao, z.local, url), faqSchema(faq)]}
 >
   <Hero

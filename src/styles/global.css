@@ -368,3 +368,67 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .bairros-grupo + .bairros-grupo { margin-top: 36px; }
 .bairros-grupo h3 { font-size: 20px; color: var(--laranja); margin-bottom: 16px; }
+
+/* Menu de áreas atendidas (mega menu) */
+.header__in { position: relative; }
+.nav > ul > li.has-mega { position: static; }
+.mega {
+  position: absolute; top: 100%; right: 0; width: min(820px, 100%); background: var(--preto-2);
+  border: 1px solid var(--borda-escura); border-radius: 14px; box-shadow: 0 24px 50px rgba(0, 0, 0, .55);
+  overflow: hidden; opacity: 0; visibility: hidden; transform: translateY(8px); transition: .2s;
+}
+.has-mega:hover .mega, .has-mega:focus-within .mega { opacity: 1; visibility: visible; transform: none; }
+.mega__topo {
+  display: flex; justify-content: space-between; align-items: center; padding: 14px 20px;
+  font-family: var(--fonte-titulo); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: .04em;
+  color: var(--laranja); border-bottom: 1px solid var(--borda-escura); background: var(--preto-3);
+}
+.mega__topo:hover { color: var(--laranja-2); }
+.mega__corpo { display: grid; grid-template-columns: 220px 1fr; }
+.mega__zonas { padding: 8px 0; border-right: 1px solid var(--borda-escura); }
+.mega__zona { display: flex; justify-content: space-between; align-items: center; padding: 11px 18px; color: #e9e9ec; font-weight: 700; font-size: 15px; }
+.mega__zona span { font-size: 18px; opacity: .8; }
+.mega__zona.is-ativo { background: var(--laranja); color: #fff; }
+.mega__painel { display: none; padding: 18px 22px 20px; max-height: min(62vh, 520px); overflow: auto; }
+.mega__painel.is-ativo { display: block; }
+.mega__ver { display: inline-flex; gap: 6px; margin-bottom: 12px; font-family: var(--fonte-titulo); font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--laranja); }
+.mega__bairros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px 14px; }
+.mega__bairros a { display: flex; align-items: center; gap: 8px; padding: 6px 0; color: #dcdce0; font-size: 14.5px; }
+.mega__bairros a:hover { color: var(--laranja); }
+.mega__bairros svg { color: var(--laranja); flex: none; }
+@media (max-width: 960px) {
+  .mega { position: static; width: auto; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; background: none; }
+  .mega__topo { background: none; border: 0; padding: 8px 12px; font-size: 13px; }
+  .mega__corpo { display: block; }
+  .mega__zonas { border: 0; padding: 0 0 0 12px; }
+  .mega__zona { padding: 8px 12px; font-weight: 600; color: #d6d6da; }
+  .mega__zona.is-ativo { background: none; color: #d6d6da; }
+  .mega__paineis { display: none; }
+}
+
+/* Botões do topo: WhatsApp verde e ligação vermelha */
+.btn--wpp { background: var(--wpp); color: #fff; box-shadow: 0 8px 24px rgba(37, 211, 102, .35); }
+.btn--wpp:hover { background: #1ebe5b; }
+.btn--ligar { background: var(--vermelho); color: #fff; box-shadow: 0 8px 24px rgba(220, 38, 38, .35); }
+.btn--ligar:hover { background: #ef4444; }
+:root { --vermelho: #dc2626; }
+
+/* Botão flutuante de ligação (lado esquerdo) */
+.ligar-float {
+  position: fixed; left: 20px; bottom: 20px; z-index: 60; width: 62px; height: 62px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--vermelho); color: #fff;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, .45); animation: pulso-vermelho 2.4s infinite;
+}
+@keyframes pulso-vermelho { 0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, .5); } 70% { box-shadow: 0 0 0 18px rgba(220, 38, 38, 0); } 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); } }
+@media (max-width: 640px) {
+  body { padding-bottom: 0; }
+  .wpp-float { display: grid; width: 56px; height: 56px; right: 14px; bottom: 14px; }
+  .ligar-float { width: 56px; height: 56px; left: 14px; bottom: 14px; }
+  .mobile-cta { display: none; }
+}
+.mega::before { content: ''; position: absolute; left: 0; right: 0; top: -28px; height: 28px; }
+.mega { overflow: visible; }
+.mega__corpo { overflow: hidden; border-radius: 0 0 14px 14px; }
+.bairros-grupo h3 a { display: inline-flex; align-items: center; gap: 8px; }
+.bairros-grupo h3 a:hover { color: var(--laranja-2); }
+.bairros-grupo h3 svg.inline { display: inline; }

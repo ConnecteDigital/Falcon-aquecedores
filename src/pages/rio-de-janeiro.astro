@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import ServicosGrid from '../components/ServicosGrid.astro';
+import Diferenciais from '../components/Diferenciais.astro';
+import Faq from '../components/Faq.astro';
+import CtaFinal from '../components/CtaFinal.astro';
+import { zonas, zonasRio, urlZona, urlBairro, URL_RIO } from '../data/zonas';
+import { faqSchema, servicoSchema } from '../lib/conteudo';
+
+const total = zonasRio.reduce((n, z) => n + z.bairros.length, 0);
+const outras = zonas.filter((z) => !zonasRio.includes(z));
+const msg = 'Olá! Preciso de conserto de aquecedor a gás no Rio de Janeiro.';
+const faq = [
+  { p: 'Quais bairros do Rio de Janeiro vocês atendem?', r: `Atendemos ${total} bairros na Zona Sul, Barra da Tijuca, Jacarepaguá e Zona Norte do Rio, entre eles Copacabana, Ipanema, Leblon, Botafogo, Tijuca, Méier, Barra e Recreio.` },
+  { p: 'Vocês fazem visita no mesmo dia?', r: 'Sempre que possível agendamos a visita para o mesmo dia ou o próximo dia útil, no horário que for melhor para você.' },
+  { p: 'Vocês atendem prédios e condomínios?', r: 'Sim. Atendemos casas, apartamentos, condomínios e comércios, seguindo as regras de cada prédio.' },
+  { p: 'Quais marcas vocês consertam?', r: 'Todas as principais: Rinnai, Lorenzetti, Komeco, Bosch, Orbis, Sakura, Junkers, Cumulus, Rheem e outras.' },
+];
+---
+<Base
+  title="Conserto de Aquecedor a Gás no Rio de Janeiro: Zonas e Bairros"
+  description={`Conserto de aquecedor a gás em ${total} bairros do Rio de Janeiro: Zona Sul, Barra da Tijuca, Jacarepaguá e Zona Norte. Técnicos especializados e garantia.`}
+  breadcrumbs={[{ nome: 'Rio de Janeiro', url: URL_RIO }]}
+  schema={[servicoSchema('Conserto de aquecedor a gás', 'Conserto, manutenção e instalação de aquecedor a gás no Rio de Janeiro.', 'Rio de Janeiro', URL_RIO), faqSchema(faq)]}
+>
+  <Hero
+    etiqueta="Rio de Janeiro - RJ"
+    titulo="Conserto de Aquecedor a Gás"
+    destaque="no Rio de Janeiro"
+    subtitulo={`Técnicos especializados em ${total} bairros da Zona Sul, Barra, Jacarepaguá e Zona Norte. Diagnóstico preciso, orçamento antes do serviço e garantia.`}
+    mensagem={msg}
+  />
+  <section class="secao secao--clara">
+    <div class="container container--estreito texto">
+      <h2>Assistência técnica de aquecedor a gás em todo o Rio</h2>
+      <p>A Falcon Aquecedores faz conserto, manutenção, limpeza e instalação de aquecedores a gás em toda a cidade do Rio de Janeiro. Atendemos aquecedores de passagem e de acumulação, analógicos e digitais, de todas as marcas.</p>
+      <p>Nossa equipe está dividida por região para chegar rápido: da Zona Sul, com Copacabana, Ipanema e Botafogo, à Barra da Tijuca e ao Recreio, passando por Jacarepaguá e pela Zona Norte, da Tijuca ao Méier. Escolha sua zona e o seu bairro abaixo.</p>
+    </div>
+  </section>
+  <section class="secao secao--escura" id="zonas">
+    <div class="container">
+      <header class="secao__head">
+        <span class="eyebrow">Zonas e bairros</span>
+        <h2>Bairros atendidos no Rio de Janeiro</h2>
+      </header>
+      {zonasRio.map((z) => (
+        <div class="bairros-grupo">
+          <h3><a href={urlZona(z)}>{z.nome} <Icon name="seta" size={18} class="inline" /></a></h3>
+          <ul class="bairros-grid">
+            {z.bairros.filter((b) => b.zona === z).map((b) => (
+              <li><a href={urlBairro(b)}><Icon name="pin" size={16} /> Aquecedor a gás {b.em}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+  <ServicosGrid titulo="Serviços no Rio de Janeiro" />
+  <Diferenciais />
+  <Faq itens={faq} titulo="Dúvidas sobre o atendimento no Rio" />
+  <section class="secao secao--clara secao--compacta">
+    <div class="container">
+      <h2 class="titulo-menor">Também atendemos</h2>
+      <ul class="chips">
+        {outras.map((o) => <li><a href={urlZona(o)}>Aquecedor a gás {o.na}</a></li>)}
+      </ul>
+    </div>
+  </section>
+  <CtaFinal mensagem={msg} />
+</Base>

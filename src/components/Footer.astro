@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import { site, whatsappUrl } from '../data/site';
 import { servicos } from '../data/servicos';
-import { zonas, urlZona } from '../data/zonas';
+import { zonas, urlZona, URL_RIO } from '../data/zonas';
 const ano = new Date().getFullYear();
 ---
 <footer class="footer">
@@ -23,7 +23,8 @@ const ano = new Date().getFullYear();
       <h2 class="footer__h">Áreas Atendidas</h2>
       <ul>
         {zonas.map((z) => <li><a href={urlZona(z)}>Aquecedor a gás {z.na}</a></li>)}
-        <li><a href="/areas-atendidas/">Todos os bairros</a></li>
+        <li><a href={URL_RIO}>Aquecedor a gás no Rio de Janeiro</a></li>
+        <li><a href="/#areas">Todos os bairros</a></li>
       </ul>
     </div>
     <div>

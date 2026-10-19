@@ -203,6 +203,7 @@ export interface Zona {
   na: string;
   da: string;
   local: string;
+  cidade: string;
   descricao: string;
   grupos: Grupo[];
   bairros: Bairro[];
@@ -212,7 +213,7 @@ const porChave = new Map<string, Bairro>();
 
 export const zonas: Zona[] = dados.map((z) => {
   const zona: Zona = {
-    nome: z.nome, slug: slugify(z.nome), na: z.na, da: z.da, local: z.local,
+    nome: z.nome, slug: slugify(z.nome), na: z.na, da: z.da, local: z.local, cidade: z.cidade,
     descricao: z.descricao, grupos: [], bairros: [],
   };
   zona.grupos = z.grupos.map((g) => {
@@ -236,6 +237,10 @@ export const zonas: Zona[] = dados.map((z) => {
 
 // Bairros com página própria (cada um só uma vez)
 export const todosBairros: Bairro[] = [...porChave.values()];
+
+// Zonas que ficam dentro da cidade do Rio de Janeiro (página /rio-de-janeiro/)
+export const zonasRio = zonas.filter((z) => z.cidade === RIO);
+export const URL_RIO = '/rio-de-janeiro/';
 
 export const urlZona = (z: Zona) => `/${z.slug}/`;
 export const urlBairro = (b: Bairro) => `/${b.zona.slug}/${b.slug}/`;

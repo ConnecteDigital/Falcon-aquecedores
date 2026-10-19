@@ -28,7 +28,8 @@ Se mudar o domínio, troque também em `astro.config.mjs` (`site`) e em `public/
 
 - `/` Página inicial
 - `/servicos/` e `/servicos/<servico>/` (ex.: `/servicos/conserto-de-aquecedor-a-gas/`)
-- `/areas-atendidas/` Todas as zonas e bairros
+- `/rio-de-janeiro/` Página da cidade do Rio (Zona Sul, Barra, Jacarepaguá e Zona Norte)
+- A página geral de áreas atendidas é a própria home (`/#areas`)
 - `/<zona>/` (ex.: `/zona-sul/`, `/niteroi/`, `/baixada-fluminense/`)
 - `/<zona>/<bairro>/` (ex.: `/zona-sul/copacabana/`, `/zona-norte/tijuca/`)
 - `/sobre/`, `/contato/`
