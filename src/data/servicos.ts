@@ -188,40 +188,6 @@ export const servicos: Servico[] = [
     ],
   },
   {
-    slug: 'chamine-para-aquecedor-a-gas',
-    nome: 'Chaminé para Aquecedor',
-    titulo: 'Chaminé e Exaustão para Aquecedor a Gás no RJ',
-    descricao:
-      'Instalação, troca e adequação de chaminé (duto de exaustão) para aquecedor a gás no Rio de Janeiro, conforme as normas. Segurança contra monóxido de carbono.',
-    h1: 'Chaminé para Aquecedor a Gás',
-    resumo: 'Instalação, troca e adequação do duto de exaustão para eliminar os gases com segurança.',
-    icone: 'chamine',
-    foto: { src: '/img/servicos/aquecedor-lorenzetti-instalado', alt: 'Duto de exaustão (chaminé) de aquecedor a gás Lorenzetti instalado', retrato: true },
-    intro: [
-      'A chaminé leva para fora os gases da queima, entre eles o monóxido de carbono, que é inodoro e perigoso. Um duto solto, furado, com diâmetro errado ou sem saída adequada coloca a família em risco e faz o aquecedor desarmar.',
-      'A Falcon Aquecedores instala, troca e adequa chaminés de aquecedores a gás seguindo a norma ABNT NBR 13103: diâmetro correto, inclinação, fixação, terminal e vedação na saída.',
-    ],
-    sinais: [
-      'Duto amassado, furado ou solto',
-      'Aquecedor desarmando por exaustão',
-      'Cheiro de gás queimado no ambiente',
-      'Manchas escuras perto da chaminé',
-      'Instalação de aquecedor novo',
-      'Exigência do condomínio ou da vistoria de gás',
-    ],
-    inclui: [
-      'Avaliação do trajeto e do diâmetro do duto',
-      'Troca de duto flexível ou rígido',
-      'Instalação de terminal e vedação na saída',
-      'Fixação e inclinação corretas',
-      'Teste de tiragem e de combustão',
-    ],
-    faq: [
-      { p: 'Toda chaminé de aquecedor precisa ir para fora?', r: 'Sim. Os gases da queima precisam ser levados para a área externa por um duto adequado, conforme a norma.' },
-      { p: 'Vocês adequam a chaminé para a vistoria do gás?', r: 'Sim. Fazemos as adequações de exaustão exigidas em vistorias e pelos condomínios.' },
-    ],
-  },
-  {
     slug: 'pressurizador-para-aquecedor',
     nome: 'Pressurizador',
     titulo: 'Pressurizador para Aquecedor a Gás no Rio de Janeiro',

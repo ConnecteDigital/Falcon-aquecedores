@@ -574,3 +574,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .cards { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 1080px) { .cards { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+.cards { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1180px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
