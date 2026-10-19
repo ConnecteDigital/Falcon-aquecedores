@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import { zonas, urlZona, urlBairro } from '../data/zonas';
+import { site } from '../data/site';
+interface Props { completo?: boolean; titulo?: string }
+const { completo = false, titulo = `Áreas atendidas em ${site.cidade}` } = Astro.props;
+const LIMITE = 12;
+---
+<section class="secao secao--clara" id="areas">
+  <div class="container">
+    <header class="secao__head">
+      <span class="eyebrow eyebrow--escuro">Onde atendemos</span>
+      <h2>{titulo}</h2>
+      <p>Técnicos espalhados pela cidade para chegar rápido até você. Encontre sua zona e o seu bairro.</p>
+    </header>
+    <div class="zonas">
+      {zonas.map((z) => (
+        <div class="zona">
+          <h3><a href={urlZona(z)}><Icon name="pin" size={20} /> {z.nome}</a></h3>
+          <ul class="zona__bairros">
+            {(completo ? z.bairros : z.bairros.slice(0, LIMITE)).map((b) => (
+              <li><a href={urlBairro(b)}>{b.nome}</a></li>
+            ))}
+          </ul>
+          <a class="zona__mais" href={urlZona(z)}>
+            {completo ? `Aquecedor a gás ${z.na}` : `Ver todos os ${z.bairros.length} bairros`} <Icon name="seta" size={16} />
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

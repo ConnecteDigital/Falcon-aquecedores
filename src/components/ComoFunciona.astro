@@ -1,0 +1,21 @@
+---
+const passos = [
+  { t: 'Chame no WhatsApp', d: 'Conte o problema, a marca e o modelo do aquecedor. Respondemos rápido.' },
+  { t: 'Agendamos a visita', d: 'Escolha o melhor horário. O técnico vai até você no dia combinado.' },
+  { t: 'Diagnóstico e orçamento', d: 'Avaliamos o aparelho e passamos o valor antes de executar.' },
+  { t: 'Banho quente garantido', d: 'Serviço feito, testado e com garantia por escrito.' },
+];
+---
+<section class="secao secao--escura" id="como-funciona">
+  <div class="container">
+    <header class="secao__head">
+      <span class="eyebrow">Simples e rápido</span>
+      <h2>Como funciona o atendimento</h2>
+    </header>
+    <ol class="passos">
+      {passos.map((p, i) => (
+        <li class="passo"><span class="passo__n">{String(i + 1).padStart(2, '0')}</span><h3>{p.t}</h3><p>{p.d}</p></li>
+      ))}
+    </ol>
+  </div>
+</section>

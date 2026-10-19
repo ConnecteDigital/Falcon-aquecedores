@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Numeros from '../components/Numeros.astro';
+import ServicosGrid from '../components/ServicosGrid.astro';
+import Sobre from '../components/Sobre.astro';
+import Diferenciais from '../components/Diferenciais.astro';
+import ComoFunciona from '../components/ComoFunciona.astro';
+import Marcas from '../components/Marcas.astro';
+import Depoimentos from '../components/Depoimentos.astro';
+import Areas from '../components/Areas.astro';
+import Faq from '../components/Faq.astro';
+import ContatoForm from '../components/ContatoForm.astro';
+import { site } from '../data/site';
+import { faqGeral, faqSchema } from '../lib/conteudo';
+---
+<Base
+  title={`Conserto de Aquecedor a Gás em São Paulo | ${site.nome}`}
+  noTitleSuffix
+  description="Conserto de aquecedor a gás em São Paulo com técnicos especializados. Manutenção, instalação e limpeza de todas as marcas. Atendimento rápido e garantia."
+  schema={[
+    { '@context': 'https://schema.org', '@type': 'WebSite', name: site.nome, url: site.url, inLanguage: 'pt-BR' },
+    faqSchema(faqGeral),
+  ]}
+>
+  <Hero
+    grande
+    etiqueta="Assistência técnica em São Paulo"
+    titulo="Conserto de Aquecedor a Gás"
+    destaque="em São Paulo"
+    subtitulo="Seu aquecedor não liga, desarma ou não esquenta a água? A Falcon Aquecedores resolve com rapidez, precisão e garantia. Atendemos todas as marcas em toda a cidade."
+    itens={['Atendimento no mesmo dia', 'Todas as marcas', 'Garantia por escrito', 'Orçamento sem compromisso']}
+  />
+  <Numeros />
+  <ServicosGrid subtitulo="Soluções completas para aquecedores a gás de passagem e de acumulação, residenciais e comerciais." />
+  <Sobre />
+  <Diferenciais />
+  <ComoFunciona />
+  <Marcas />
+  <Depoimentos />
+  <Areas />
+  <Faq itens={faqGeral} />
+  <ContatoForm />
+</Base>

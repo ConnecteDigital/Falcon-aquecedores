@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+import { site, whatsappUrl } from '../data/site';
+interface Props {
+  etiqueta: string;
+  titulo: string;
+  destaque?: string;
+  subtitulo: string;
+  itens?: string[];
+  mensagem?: string;
+  grande?: boolean;
+}
+const {
+  etiqueta, titulo, destaque, subtitulo, mensagem, grande,
+  itens = ['Atendimento no mesmo dia', 'Todas as marcas', 'Garantia no serviço'],
+} = Astro.props;
+---
+<section class:list={['hero', { 'hero--grande': grande }]}>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container hero__in">
+    <div class="hero__txt">
+      <span class="eyebrow"><Icon name="chama" size={16} /> {etiqueta}</span>
+      <h1>{titulo}{destaque && <> <span class="txt-laranja">{destaque}</span></>}</h1>
+      <p class="hero__sub">{subtitulo}</p>
+      <div class="hero__btns">
+        <a class="btn btn--primary btn--lg" href={whatsappUrl(mensagem)} target="_blank" rel="noopener"><Icon name="whatsapp" size={22} /> Orçamento pelo WhatsApp</a>
+        <a class="btn btn--ghost btn--lg" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={20} /> {site.telefone}</a>
+      </div>
+      <ul class="hero__itens">
+        {itens.map((i) => <li><Icon name="check" size={18} /> {i}</li>)}
+      </ul>
+    </div>
+    {grande ? (
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__circulo">
+          <img src="/img/logo-falcon-480.webp" width="405" height="422" alt="" fetchpriority="high" />
+        </div>
+        <div class="hero__card hero__card--a"><Icon name="medalha" size={26} /><div><strong>Técnicos especializados</strong><span>Aquecedores a gás</span></div></div>
+        <div class="hero__card hero__card--b"><Icon name="escudo" size={26} /><div><strong>Garantia por escrito</strong><span>Em todos os serviços</span></div></div>
+      </div>
+    ) : (
+      <div class="hero__mini" aria-hidden="true">
+        <img src="/img/logo-falcon-480.webp" width="405" height="422" alt="" fetchpriority="high" />
+      </div>
+    )}
+  </div>
+</section>

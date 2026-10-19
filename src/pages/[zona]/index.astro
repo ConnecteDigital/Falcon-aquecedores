@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ServicosGrid from '../../components/ServicosGrid.astro';
+import Diferenciais from '../../components/Diferenciais.astro';
+import Faq from '../../components/Faq.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { zonas, urlZona, urlBairro, type Zona } from '../../data/zonas';
+import { site } from '../../data/site';
+import { faqSchema, faqZona, servicoSchema, textoZona } from '../../lib/conteudo';
+
+export function getStaticPaths() {
+  return zonas.map((z) => ({ params: { zona: z.slug }, props: { z } }));
+}
+const { z } = Astro.props as { z: Zona };
+const url = urlZona(z);
+const faq = faqZona(z);
+const msg = `Olá! Preciso de conserto de aquecedor a gás ${z.na}.`;
+const outras = zonas.filter((o) => o !== z);
+---
+<Base
+  title={`Conserto de Aquecedor a Gás ${z.na} de SP`}
+  description={`Conserto de aquecedor a gás ${z.na} de São Paulo. Atendemos ${z.bairros.length} bairros com técnicos especializados, todas as marcas e garantia. Chame no WhatsApp.`}
+  breadcrumbs={[{ nome: 'Áreas Atendidas', url: '/areas-atendidas/' }, { nome: z.nome, url }]}
+  schema={[servicoSchema('Conserto de aquecedor a gás', z.descricao, `${z.nome}, ${site.cidade}`, url), faqSchema(faq)]}
+>
+  <Hero
+    etiqueta={`${z.nome} - ${site.cidade}`}
+    titulo="Conserto de Aquecedor a Gás"
+    destaque={z.na}
+    subtitulo={`Técnicos especializados atendendo ${z.bairros.length} bairros ${z.da}. Diagnóstico preciso, orçamento antes do serviço e garantia.`}
+    mensagem={msg}
+  />
+  <section class="secao secao--clara">
+    <div class="container container--estreito texto">
+      <h2>Assistência técnica de aquecedor a gás {z.na}</h2>
+      {textoZona(z).map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+  <section class="secao secao--escura" id="bairros">
+    <div class="container">
+      <header class="secao__head">
+        <span class="eyebrow">Bairros atendidos</span>
+        <h2>Bairros atendidos {z.na}</h2>
+        <p>Clique no seu bairro para ver o atendimento na sua região.</p>
+      </header>
+      <ul class="bairros-grid">
+        {z.bairros.map((b) => (
+          <li><a href={urlBairro(b)}><Icon name="pin" size={16} /> Aquecedor a gás em {b.nome}</a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <ServicosGrid titulo={`Serviços ${z.na}`} local={z.na} />
+  <Diferenciais />
+  <Faq itens={faq} titulo={`Dúvidas sobre o atendimento ${z.na}`} />
+  <section class="secao secao--clara secao--compacta">
+    <div class="container">
+      <h2 class="titulo-menor">Também atendemos</h2>
+      <ul class="chips">
+        {outras.map((o) => <li><a href={urlZona(o)}>Aquecedor a gás {o.na}</a></li>)}
+      </ul>
+    </div>
+  </section>
+  <CtaFinal mensagem={msg} titulo={`Aquecedor com defeito ${z.na}?`} />
+</Base>

@@ -1,0 +1,56 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+import { servicos } from '../data/servicos';
+import { zonas } from '../data/zonas';
+---
+<section class="secao secao--escura" id="orcamento">
+  <div class="container contato">
+    <div class="contato__txt">
+      <span class="eyebrow">Orçamento grátis</span>
+      <h2>Solicite seu orçamento</h2>
+      <p>Preencha os dados e envie direto para o nosso WhatsApp. Respondemos em poucos minutos no horário de atendimento.</p>
+      <ul class="contato__lista">
+        <li><Icon name="telefone" size={22} /><div><span>Telefone</span><a href={`tel:${site.telefoneLink}`}>{site.telefone}</a></div></li>
+        <li><Icon name="email" size={22} /><div><span>E-mail</span><a href={`mailto:${site.email}`}>{site.email}</a></div></li>
+        <li><Icon name="relogio" size={22} /><div><span>Horário</span><strong>{site.horario}</strong></div></li>
+      </ul>
+    </div>
+    <form class="form" id="form-orcamento" data-whatsapp={site.whatsapp}>
+      <label>Nome<input name="nome" required autocomplete="name" placeholder="Seu nome" /></label>
+      <label>Telefone / WhatsApp<input name="telefone" required type="tel" autocomplete="tel" placeholder="(11) 90000-0000" /></label>
+      <div class="form__linha">
+        <label>Serviço
+          <select name="servico">
+            {servicos.map((s) => <option>{s.nome}</option>)}
+            <option>Outro</option>
+          </select>
+        </label>
+        <label>Região
+          <select name="regiao">
+            {zonas.map((z) => <option>{z.nome}</option>)}
+          </select>
+        </label>
+      </div>
+      <label>Bairro<input name="bairro" placeholder="Seu bairro" /></label>
+      <label>Marca e problema<textarea name="mensagem" rows="3" placeholder="Ex.: Rinnai digital, não acende"></textarea></label>
+      <button class="btn btn--primary btn--lg" type="submit"><Icon name="whatsapp" size={22} /> Enviar pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
+<script>
+  const form = document.getElementById('form-orcamento') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    const txt = [
+      'Olá! Gostaria de um orçamento.',
+      `Nome: ${d.get('nome')}`,
+      `Telefone: ${d.get('telefone')}`,
+      `Serviço: ${d.get('servico')}`,
+      `Região: ${d.get('regiao')}${d.get('bairro') ? ' - ' + d.get('bairro') : ''}`,
+      d.get('mensagem') ? `Detalhes: ${d.get('mensagem')}` : '',
+    ].filter(Boolean).join('\n');
+    window.open(`https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(txt)}`, '_blank');
+  });
+</script>

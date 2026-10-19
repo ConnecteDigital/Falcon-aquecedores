@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+import { site, whatsappUrl } from '../data/site';
+---
+<a class="wpp-float" href={whatsappUrl()} target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+  <Icon name="whatsapp" size={32} />
+</a>
+<div class="mobile-cta">
+  <a href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={18} /> Ligar</a>
+  <a href={whatsappUrl()} target="_blank" rel="noopener" class="is-wpp"><Icon name="whatsapp" size={18} /> WhatsApp</a>
+</div>

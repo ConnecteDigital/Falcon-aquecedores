@@ -1,0 +1,11 @@
+---
+// Barra de números / prova social logo abaixo do hero
+import { site } from '../data/site';
+---
+<section class="numeros" aria-label="Falcon Aquecedores em números">
+  <div class="container numeros__grid">
+    {site.numeros.map((n) => (
+      <div class="numero"><strong>{n.valor}</strong><span>{n.rotulo}</span></div>
+    ))}
+  </div>
+</section>

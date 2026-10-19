@@ -1,0 +1,14 @@
+---
+import { marcas } from '../data/site';
+---
+<section class="secao secao--clara secao--compacta" id="marcas">
+  <div class="container">
+    <header class="secao__head">
+      <span class="eyebrow eyebrow--escuro">Multimarcas</span>
+      <h2>Atendemos todas as marcas de aquecedor a gás</h2>
+    </header>
+    <ul class="marcas">
+      {marcas.map((m) => <li>{m}</li>)}
+    </ul>
+  </div>
+</section>

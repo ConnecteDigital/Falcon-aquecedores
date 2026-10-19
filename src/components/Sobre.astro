@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+import { site, whatsappUrl } from '../data/site';
+interface Props { local?: string }
+const { local = site.cidade } = Astro.props;
+---
+<section class="secao secao--escura" id="sobre">
+  <div class="container sobre">
+    <div class="sobre__img" aria-hidden="true">
+      <div class="aquecedor">
+        <div class="aquecedor__corpo">
+          <span class="aquecedor__visor">42°</span>
+          <span class="aquecedor__chama"><Icon name="chama" size={48} /></span>
+        </div>
+        <div class="aquecedor__canos"><i></i><i></i><i></i></div>
+      </div>
+      <div class="sobre__selo"><strong>{site.numeros[0].valor}</strong><span>{site.numeros[0].rotulo}</span></div>
+    </div>
+    <div class="sobre__txt">
+      <span class="eyebrow">Sobre a Falcon</span>
+      <h2>Especialistas em aquecedor a gás em {local}</h2>
+      <p>A <strong>{site.nome}</strong> nasceu para resolver um problema que ninguém quer ter: ficar sem água quente. Somos especializados em <strong>conserto, manutenção e instalação de aquecedores a gás</strong> de passagem e de acumulação, para residências, condomínios e comércios.</p>
+      <p>Trabalhamos com honestidade: diagnóstico antes do orçamento, preço combinado antes do serviço e garantia por escrito depois. Nossa equipe atende todas as zonas de {site.cidade} com agilidade, precisão e segurança, como um falcão.</p>
+      <ul class="lista-check">
+        <li><Icon name="check" size={20} /> Atendimento a todas as marcas e modelos</li>
+        <li><Icon name="check" size={20} /> Técnicos uniformizados e identificados</li>
+        <li><Icon name="check" size={20} /> Serviço dentro das normas de segurança</li>
+      </ul>
+      <a class="btn btn--primary" href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> Fale com um técnico</a>
+    </div>
+  </div>
+</section>

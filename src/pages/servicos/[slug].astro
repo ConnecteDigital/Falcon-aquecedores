@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Icon from '../../components/Icon.astro';
+import ServicosGrid from '../../components/ServicosGrid.astro';
+import ComoFunciona from '../../components/ComoFunciona.astro';
+import Faq from '../../components/Faq.astro';
+import CtaFinal from '../../components/CtaFinal.astro';
+import { servicos, type Servico } from '../../data/servicos';
+import { zonas, urlZona } from '../../data/zonas';
+import { site, whatsappUrl } from '../../data/site';
+import { faqSchema, servicoSchema } from '../../lib/conteudo';
+
+export function getStaticPaths() {
+  return servicos.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props as { s: Servico };
+const url = `/servicos/${s.slug}/`;
+const msg = `Olá! Vim pelo site e preciso de ${s.nome.toLowerCase()}.`;
+---
+<Base
+  title={s.titulo}
+  description={s.descricao}
+  breadcrumbs={[{ nome: 'Serviços', url: '/servicos/' }, { nome: s.nome, url }]}
+  schema={[servicoSchema(s.nome, s.descricao, site.cidade, url), faqSchema(s.faq)]}
+>
+  <Hero etiqueta={s.nome} titulo={s.h1} subtitulo={s.resumo} mensagem={msg} />
+
+  <section class="secao secao--clara">
+    <div class="container conteudo">
+      <article class="texto">
+        <h2>{s.nome} com a Falcon Aquecedores</h2>
+        {s.intro.map((p) => <p>{p}</p>)}
+        <h2>Quando chamar um técnico?</h2>
+        <ul class="sinais">
+          {s.sinais.map((x) => <li><Icon name="alerta" size={20} /> {x}</li>)}
+        </ul>
+        <h2>O que está incluso</h2>
+        <ul class="lista-check lista-check--escura">
+          {s.inclui.map((x) => <li><Icon name="check" size={20} /> {x}</li>)}
+        </ul>
+      </article>
+      <aside class="lateral">
+        <div class="lateral__box">
+          <h2>Orçamento rápido</h2>
+          <p>Envie o modelo do aquecedor e o problema. Respondemos em minutos.</p>
+          <a class="btn btn--primary" href={whatsappUrl(msg)} target="_blank" rel="noopener"><Icon name="whatsapp" size={20} /> WhatsApp</a>
+          <a class="btn btn--ghost-escuro" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={18} /> {site.telefone}</a>
+        </div>
+        <div class="lateral__box lateral__box--claro">
+          <h2>{s.nome} por região</h2>
+          <ul class="lateral__links">
+            {zonas.map((z) => <li><a href={urlZona(z)}><Icon name="pin" size={16} /> {s.nome} {z.na}</a></li>)}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <ComoFunciona />
+  <Faq itens={s.faq} titulo={`Dúvidas sobre ${s.nome.toLowerCase()}`} escura={false} />
+  <ServicosGrid titulo="Outros serviços" excluir={s.slug} />
+  <CtaFinal mensagem={msg} />
+</Base>

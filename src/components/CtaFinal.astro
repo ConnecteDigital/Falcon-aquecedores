@@ -1,0 +1,22 @@
+---
+import Icon from './Icon.astro';
+import { site, whatsappUrl } from '../data/site';
+interface Props { titulo?: string; texto?: string; mensagem?: string }
+const {
+  titulo = 'Aquecedor com problema? Fale agora com a Falcon',
+  texto = 'Orçamento sem compromisso pelo WhatsApp. Atendimento rápido em toda São Paulo.',
+  mensagem,
+} = Astro.props;
+---
+<section class="cta-final">
+  <div class="container cta-final__in">
+    <div>
+      <h2>{titulo}</h2>
+      <p>{texto}</p>
+    </div>
+    <div class="cta-final__btns">
+      <a class="btn btn--branco btn--lg" href={whatsappUrl(mensagem)} target="_blank" rel="noopener"><Icon name="whatsapp" size={22} /> Chamar no WhatsApp</a>
+      <a class="btn btn--contorno btn--lg" href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={20} /> Ligar agora</a>
+    </div>
+  </div>
+</section>

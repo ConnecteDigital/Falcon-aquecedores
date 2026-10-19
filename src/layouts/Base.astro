@@ -1,0 +1,112 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingCTA from '../components/FloatingCTA.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+import { zonas } from '../data/zonas';
+
+export interface Crumb { nome: string; url: string }
+interface Props {
+  title: string;
+  description: string;
+  schema?: object[];
+  breadcrumbs?: Crumb[];
+  ogImage?: string;
+  noTitleSuffix?: boolean;
+}
+
+const { title, description, schema = [], breadcrumbs, ogImage = '/img/og-falcon.jpg', noTitleSuffix } = Astro.props;
+const fullTitle = noTitleSuffix ? title : `${title} | ${site.nome}`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const og = new URL(ogImage, site.url).href;
+
+const negocio = {
+  '@context': 'https://schema.org',
+  '@type': 'HVACBusiness',
+  '@id': `${site.url}/#empresa`,
+  name: site.nome,
+  description: `${site.nome}: conserto, manutenção e instalação de aquecedor a gás em ${site.cidade}.`,
+  url: site.url,
+  logo: `${site.url}/img/logo-falcon-480.png`,
+  image: og,
+  telephone: site.telefoneLink,
+  email: site.email,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.endereco.rua || undefined,
+    postalCode: site.endereco.cep || undefined,
+    addressLocality: site.cidade,
+    addressRegion: site.uf,
+    addressCountry: 'BR',
+  },
+  areaServed: zonas.map((z) => ({ '@type': 'AdministrativeArea', name: `${z.nome} de ${site.cidade}` })),
+  openingHoursSpecification: site.horarioSchema.map((h) => ({
+    '@type': 'OpeningHoursSpecification', dayOfWeek: h.dias, opens: h.abre, closes: h.fecha,
+  })),
+  sameAs: [site.instagram, site.facebook].filter(Boolean),
+};
+
+const crumbsSchema = breadcrumbs && {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ nome: 'Início', url: '/' }, ...breadcrumbs].map((c, i) => ({
+    '@type': 'ListItem', position: i + 1, name: c.nome, item: new URL(c.url, site.url).href,
+  })),
+};
+
+const allSchema = [negocio, ...(crumbsSchema ? [crumbsSchema] : []), ...schema];
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content={site.cidade} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.nome} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <slot name="head" />
+    {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo">
+      {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
+      <slot />
+    </main>
+    <Footer />
+    <FloatingCTA />
+  </body>
+</html>

@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+import { depoimentos } from '../data/depoimentos';
+---
+{depoimentos.length > 0 && (
+  <section class="secao secao--escura" id="depoimentos">
+    <div class="container">
+      <header class="secao__head">
+        <span class="eyebrow">Depoimentos</span>
+        <h2>O que nossos clientes dizem</h2>
+      </header>
+      <div class="depoimentos">
+        {depoimentos.map((d) => (
+          <figure class="depoimento">
+            <div class="estrelas" aria-label={`${d.nota} de 5 estrelas`}>
+              {Array.from({ length: d.nota }).map(() => <Icon name="estrela" size={18} />)}
+            </div>
+            <blockquote>“{d.texto}”</blockquote>
+            <figcaption><strong>{d.nome}</strong><span>{d.bairro}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

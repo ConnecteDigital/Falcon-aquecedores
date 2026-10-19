@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import { servicos } from '../data/servicos';
+interface Props { titulo?: string; subtitulo?: string; local?: string; excluir?: string }
+const { titulo = 'Nossos Serviços', subtitulo, local, excluir } = Astro.props;
+const lista = servicos.filter((s) => s.slug !== excluir);
+---
+<section class="secao secao--clara" id="servicos">
+  <div class="container">
+    <header class="secao__head">
+      <span class="eyebrow eyebrow--escuro">O que fazemos</span>
+      <h2>{titulo}</h2>
+      {subtitulo && <p>{subtitulo}</p>}
+    </header>
+    <div class="cards">
+      {lista.map((s) => (
+        <a class="card-servico" href={`/servicos/${s.slug}/`}>
+          <span class="card-servico__icone"><Icon name={s.icone} size={30} /></span>
+          <h3>{s.nome}{local && <span class="sr-only"> {local}</span>}</h3>
+          <p>{s.resumo}</p>
+          <span class="card-servico__link">Saiba mais <Icon name="seta" size={16} /></span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

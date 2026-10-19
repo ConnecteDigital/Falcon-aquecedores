@@ -1,0 +1,54 @@
+---
+import Icon from './Icon.astro';
+import { site, whatsappUrl } from '../data/site';
+import { servicos } from '../data/servicos';
+import { zonas, urlZona } from '../data/zonas';
+---
+<div class="topbar">
+  <div class="container topbar__in">
+    <span><Icon name="relogio" size={15} /> {site.horario}</span>
+    <span class="topbar__dir">
+      <a href={`tel:${site.telefoneLink}`}><Icon name="telefone" size={15} /> {site.telefone}</a>
+      <a href={`mailto:${site.email}`} class="hide-sm"><Icon name="email" size={15} /> {site.email}</a>
+    </span>
+  </div>
+</div>
+<header class="header" id="topo">
+  <div class="container header__in">
+    <a href="/" class="logo" aria-label={`${site.nome} - página inicial`}>
+      <img src="/img/logo-falcon-160.webp" width="56" height="58" alt={`Logo ${site.nome}`} />
+      <span class="logo__txt"><strong>FALCON</strong><small>AQUECEDORES</small></span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><Icon name="menu" size={28} /></button>
+    <nav id="menu" class="nav" aria-label="Menu principal">
+      <ul>
+        <li><a href="/">Início</a></li>
+        <li class="has-sub">
+          <a href="/servicos/">Serviços</a>
+          <ul class="sub">
+            {servicos.map((s) => <li><a href={`/servicos/${s.slug}/`}>{s.nome}</a></li>)}
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="/areas-atendidas/">Áreas Atendidas</a>
+          <ul class="sub">
+            {zonas.map((z) => <li><a href={urlZona(z)}>{z.nome}</a></li>)}
+          </ul>
+        </li>
+        <li><a href="/sobre/">Sobre</a></li>
+        <li><a href="/contato/">Contato</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm" href={whatsappUrl()} target="_blank" rel="noopener">
+        <Icon name="whatsapp" size={18} /> Orçamento
+      </a>
+    </nav>
+  </div>
+</header>
+<script>
+  const btn = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('menu');
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

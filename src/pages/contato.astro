@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ContatoForm from '../components/ContatoForm.astro';
+import Areas from '../components/Areas.astro';
+---
+<Base
+  title="Contato e Orçamento"
+  description="Fale com a Falcon Aquecedores: orçamento de conserto de aquecedor a gás em São Paulo pelo WhatsApp ou telefone. Atendimento rápido."
+  breadcrumbs={[{ nome: 'Contato', url: '/contato/' }]}
+  schema={[{ '@context': 'https://schema.org', '@type': 'ContactPage', name: 'Contato Falcon Aquecedores' }]}
+>
+  <Hero etiqueta="Contato" titulo="Fale com a" destaque="Falcon Aquecedores" subtitulo="Orçamento sem compromisso pelo WhatsApp ou telefone. Respondemos rápido." />
+  <ContatoForm />
+  <Areas />
+</Base>

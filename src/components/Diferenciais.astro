@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+const itens = [
+  { icone: 'relogio', t: 'Atendimento rápido', d: 'Visitas no mesmo dia ou no próximo dia útil, com horário combinado.' },
+  { icone: 'medalha', t: 'Técnicos especializados', d: 'Equipe treinada em aquecedores a gás de todas as marcas.' },
+  { icone: 'escudo', t: 'Garantia no serviço', d: 'Todo conserto sai com garantia por escrito na peça e na mão de obra.' },
+  { icone: 'carteira', t: 'Orçamento transparente', d: 'Você aprova o valor antes de começarmos. Sem surpresas no final.' },
+  { icone: 'alerta', t: 'Segurança em 1º lugar', d: 'Testes de vazamento e combustão seguindo as normas técnicas.' },
+  { icone: 'caminhao', t: 'Toda São Paulo', d: 'Atendemos Zona Sul, Norte, Leste, Oeste e Centro.' },
+];
+---
+<section class="secao secao--clara" id="diferenciais">
+  <div class="container">
+    <header class="secao__head">
+      <span class="eyebrow eyebrow--escuro">Por que a Falcon?</span>
+      <h2>Por que escolher a Falcon Aquecedores</h2>
+      <p>Mais do que consertar, cuidamos da segurança da sua família e do conforto do seu banho.</p>
+    </header>
+    <div class="diferenciais">
+      {itens.map((i) => (
+        <div class="diferencial">
+          <span class="diferencial__icone"><Icon name={i.icone} size={28} /></span>
+          <div><h3>{i.t}</h3><p>{i.d}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

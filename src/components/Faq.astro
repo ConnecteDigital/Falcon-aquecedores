@@ -1,0 +1,20 @@
+---
+interface Props { itens: { p: string; r: string }[]; titulo?: string; escura?: boolean }
+const { itens, titulo = 'Perguntas frequentes', escura = true } = Astro.props;
+---
+<section class:list={['secao', escura ? 'secao--escura' : 'secao--clara']} id="faq">
+  <div class="container container--estreito">
+    <header class="secao__head">
+      <span class:list={['eyebrow', { 'eyebrow--escuro': !escura }]}>Dúvidas</span>
+      <h2>{titulo}</h2>
+    </header>
+    <div class="faq">
+      {itens.map((f, i) => (
+        <details open={i === 0}>
+          <summary><h3>{f.p}</h3></summary>
+          <p>{f.r}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

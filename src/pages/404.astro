@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Areas from '../components/Areas.astro';
+---
+<Base title="Página não encontrada" description="A página que você procura não existe. Veja nossos serviços de conserto de aquecedor a gás em São Paulo.">
+  <meta slot="head" name="robots" content="noindex" />
+  <Hero etiqueta="Erro 404" titulo="Página não" destaque="encontrada" subtitulo="O endereço pode ter mudado. Use o menu ou fale direto com a gente pelo WhatsApp." />
+  <Areas />
+</Base>
