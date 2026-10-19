@@ -1,14 +1,22 @@
 ---
-import { marcas } from '../data/site';
+// Marcas atendidas, no estilo "logo" de cada fabricante (texto estilizado,
+// sem usar arquivos de logo de terceiros).
+const marcas = [
+  { nome: 'Bosch', classe: 'm-bosch', texto: 'BOSCH' },
+  { nome: 'Rinnai', classe: 'm-rinnai', texto: 'Rinnai' },
+  { nome: 'Lorenzetti', classe: 'm-lorenzetti', texto: 'LORENZETTI' },
+  { nome: 'Komeco', classe: 'm-komeco', texto: 'KOMECO' },
+  { nome: 'Rheem', classe: 'm-rheem', texto: 'Rheem' },
+  { nome: 'Kobe', classe: 'm-kobe', texto: 'KOBE' },
+];
 ---
-<section class="secao secao--clara secao--compacta" id="marcas">
+<section class="marcas-faixa" id="marcas" aria-labelledby="marcas-titulo">
   <div class="container">
-    <header class="secao__head">
-      <span class="eyebrow eyebrow--escuro">Multimarcas</span>
-      <h2>Atendemos todas as marcas de aquecedor a gás</h2>
-    </header>
-    <ul class="marcas">
-      {marcas.map((m) => <li>{m}</li>)}
+    <h2 id="marcas-titulo" class="marcas-faixa__titulo">Trabalhamos com as melhores marcas</h2>
+    <ul class="marcas-faixa__lista">
+      {marcas.map((m) => (
+        <li class={`marca ${m.classe}`} title={m.nome}><span>{m.texto}</span></li>
+      ))}
     </ul>
   </div>
 </section>

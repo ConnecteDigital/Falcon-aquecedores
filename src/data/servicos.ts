@@ -163,7 +163,7 @@ export const servicos: Servico[] = [
     h1: 'Conversão de Aquecedor de GLP para Gás Natural',
     resumo: 'Mudou o tipo de gás? Convertimos seu aquecedor com segurança e regulagem.',
     icone: 'troca',
-    foto: { src: '/img/servicos/aquecedor-rinnai-prata-gas', alt: 'Aquecedor a gás Rinnai com ligações de gás, água quente e água fria identificadas', retrato: true },
+    foto: { src: '/img/servicos/central-de-gas-glp-regulador', alt: 'Central de gás GLP com regulador de pressão instalada pela Falcon Aquecedores', retrato: true },
     intro: [
       'Quando o prédio ou a casa passa do gás de botijão (GLP) para o gás natural encanado (GN), o aquecedor precisa ser convertido. Usar o aparelho sem conversão é perigoso e danifica os componentes.',
       'Trocamos os injetores e o que mais for necessário conforme o kit do fabricante, regulamos a pressão e testamos a combustão.',
@@ -188,13 +188,48 @@ export const servicos: Servico[] = [
     ],
   },
   {
-    slug: 'pressurizador-para-aquecedor',
-    nome: 'Pressurizador',
-    titulo: 'Pressurizador para Aquecedor a Gás no Rio de Janeiro',
+    slug: 'construcao-de-tubulacao-de-gas',
+    nome: 'Construção de Tubulação de Gás',
+    titulo: 'Construção de Tubulação de Gás no Rio de Janeiro',
     descricao:
-      'Instalação e conserto de pressurizador de água para aquecedor a gás no Rio de Janeiro. Mais pressão no chuveiro e aquecedor acendendo sempre. Lorenzetti, Komeco, Rinnai.',
-    h1: 'Pressurizador para Aquecedor a Gás',
-    resumo: 'Instalação e conserto de pressurizador para ter pressão no chuveiro e o aquecedor acendendo sempre.',
+      'Construção de tubulação de gás no Rio de Janeiro: rede nova para aquecedores, fogões e centrais de gás, em cobre, multicamada ou aço, conforme as normas, com teste de estanqueidade.',
+    h1: 'Construção de Tubulação de Gás',
+    resumo: 'Rede de gás nova para aquecedores, fogões e centrais, feita dentro das normas e testada.',
+    icone: 'tubo',
+    foto: { src: '/img/servicos/tubulacao-gas-aquecedores-rinnai', alt: 'Tubulação de gás e água construída para vários aquecedores Rinnai', retrato: true },
+    intro: [
+      'Uma tubulação de gás bem feita é a base de uma instalação segura. A Falcon Aquecedores constrói redes de gás novas para casas, apartamentos, condomínios e comércios, desde a central ou o medidor até cada ponto de consumo: aquecedores, fogões e equipamentos.',
+      'Definimos o trajeto e o diâmetro da rede de acordo com a quantidade de aparelhos, usamos materiais adequados (cobre, multicamada ou aço), instalamos registros e reguladores e, no fim, fazemos o teste de estanqueidade para garantir que não há vazamento.',
+    ],
+    sinais: [
+      'Instalação de aquecedor a gás em imóvel sem ponto de gás',
+      'Reforma de cozinha, banheiro ou área de serviço',
+      'Troca do botijão (GLP) por gás encanado (GN)',
+      'Instalação de vários aquecedores em condomínio ou comércio',
+      'Tubulação antiga, corroída ou fora das normas',
+      'Mudança de local do aquecedor ou do fogão',
+    ],
+    inclui: [
+      'Avaliação do local e definição do trajeto',
+      'Dimensionamento da rede conforme os aparelhos',
+      'Tubulação em cobre, multicamada ou aço',
+      'Instalação de registros e reguladores de pressão',
+      'Teste de estanqueidade e garantia no serviço',
+    ],
+    faq: [
+      { p: 'Vocês fazem a tubulação de gás para mais de um aquecedor?', r: 'Sim. Construímos redes para vários aquecedores, como em condomínios, academias e comércios, com o dimensionamento correto para todos funcionarem ao mesmo tempo.' },
+      { p: 'A tubulação segue as normas técnicas?', r: 'Sim. Seguimos as normas da ABNT para instalações de gás e fazemos o teste de estanqueidade ao final.' },
+      { p: 'Vocês fazem tubulação para gás natural e para GLP?', r: 'Sim. Construímos redes para gás natural encanado (GN) e para gás de botijão ou central (GLP).' },
+    ],
+  },
+  {
+    slug: 'pressurizador-para-aquecedor',
+    nome: 'Venda e Instalação de Pressurizador',
+    titulo: 'Venda e Instalação de Pressurizador no Rio de Janeiro',
+    descricao:
+      'Venda e instalação de pressurizador de água para aquecedor a gás no Rio de Janeiro. Mais pressão no chuveiro e aquecedor acendendo sempre. Lorenzetti, Komeco, Rinnai.',
+    h1: 'Venda e Instalação de Pressurizador',
+    resumo: 'Venda e instalação de pressurizador para ter pressão no chuveiro e o aquecedor acendendo sempre.',
     icone: 'pressao',
     foto: { src: '/img/servicos/pressurizador-lorenzetti', alt: 'Pressurizador de água Lorenzetti para aquecedor a gás' },
     intro: [
