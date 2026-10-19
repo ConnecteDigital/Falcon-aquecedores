@@ -5,12 +5,14 @@
 // descrição (ex.: "instalacao-aquecedor-rinnai-copacabana.jpg" →
 // "Instalação aquecedor Rinnai copacabana"), então use nomes descritivos.
 // Os itens seguem a ordem alfabética; um número no início ("01-", "03a-")
-// define a posição e não aparece na legenda. Para um vídeo, dá para colocar
+// define a posição e não aparece na legenda. Legendas longas ficam em
+// src/data/legendas.ts. Para um vídeo, dá para colocar
 // uma imagem de capa em capas/ com o mesmo nome (ex.: capas/meu-video.jpg).
 import { Image, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Icon from './Icon.astro';
 import { whatsappUrl } from '../data/site';
+import { legendas } from '../data/legendas';
 
 interface Props { titulo?: string }
 const { titulo = 'Serviços realizados' } = Astro.props;
@@ -34,7 +36,9 @@ const PALAVRAS: Record<string, string> = {
   bosch: 'Bosch', cumulus: 'Cumulus', orbis: 'Orbis', sakura: 'Sakura', inova: 'Inova',
 };
 const descrever = (caminho: string) => {
-  const nome = caminho.split('/').pop()!.replace(/\.[^.]+$/, '').replace(/^\d+[a-z]?[-_ ]+/i, '');
+  const arquivo = caminho.split('/').pop()!.replace(/\.[^.]+$/, '');
+  if (legendas[arquivo]) return legendas[arquivo];
+  const nome = arquivo.replace(/^\d+[a-z]?[-_ ]+/i, '');
   const txt = nome.split(/[-_ ]+/).filter(Boolean).map((p) => PALAVRAS[p.toLowerCase()] ?? p).join(' ');
   return txt.charAt(0).toUpperCase() + txt.slice(1);
 };
