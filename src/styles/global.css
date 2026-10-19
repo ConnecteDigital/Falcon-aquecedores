@@ -571,3 +571,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .header__wpp { padding: 8px 12px; font-size: 13px; gap: 6px; margin-right: 0; }
   .nav-toggle { padding: 4px; }
 }
+.cards { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 1080px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }

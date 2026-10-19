@@ -15,18 +15,18 @@ export interface Servico {
 
 export const servicos: Servico[] = [
   {
-    slug: 'conserto-de-aquecedor-a-gas',
-    nome: 'Conserto de Aquecedor a Gás',
-    titulo: 'Conserto de Aquecedor a Gás no Rio de Janeiro',
+    slug: 'conserto-e-manutencao-de-aquecedor-a-gas',
+    nome: 'Conserto e Manutenção de Aquecedor a Gás',
+    titulo: 'Conserto e Manutenção de Aquecedor a Gás no RJ',
     descricao:
-      'Conserto de aquecedor a gás no Rio de Janeiro com técnico especializado. Diagnóstico preciso, peças originais e garantia. Chame no WhatsApp e agende hoje.',
-    h1: 'Conserto de Aquecedor a Gás no Rio de Janeiro',
-    resumo: 'Aquecedor não liga, desarma ou não esquenta? Diagnosticamos e consertamos no mesmo dia.',
+      'Conserto e manutenção de aquecedor a gás no Rio de Janeiro e Niterói com técnico especializado. Diagnóstico preciso, peças originais e garantia. Chame no WhatsApp.',
+    h1: 'Conserto e Manutenção de Aquecedor a Gás',
+    resumo: 'Aquecedor não liga, desarma ou não esquenta? Diagnosticamos, consertamos e revisamos no mesmo dia.',
     icone: 'ferramenta',
-    foto: { src: '/img/servicos/aquecedor-aberto-reparo', alt: 'Aquecedor a gás aberto com placa eletrônica durante conserto', retrato: true },
+    foto: { src: '/img/servicos/tecnico-conserto-aquecedor', alt: 'Técnico da Falcon Aquecedores fazendo conserto e manutenção de aquecedor a gás Rinnai', retrato: true },
     intro: [
-      'Quando o aquecedor a gás para de funcionar, o banho quente vira problema na hora. A Falcon Aquecedores faz o conserto de aquecedores de passagem e de acumulação, analógicos e digitais, com técnicos treinados e ferramentas de medição próprias.',
-      'Começamos por um diagnóstico completo: verificamos a ignição, o sensor de chama, a válvula de gás, o fluxostato, a placa eletrônica e a exaustão. Assim você sabe exatamente o defeito e o valor antes de qualquer troca de peça.',
+      'Quando o aquecedor a gás para de funcionar ou começa a dar sinais de desgaste, o banho quente vira problema. A Falcon Aquecedores faz o conserto e a manutenção de aquecedores de passagem e de acumulação, analógicos e digitais, com técnicos treinados e ferramentas de medição próprias.',
+      'Começamos por um diagnóstico completo: verificamos ignição, sensor de chama, válvula de gás, fluxostato, placa eletrônica, ventilador e exaustão. Regulamos chama e pressão e, quando preciso, trocamos componentes com peças compatíveis com o seu modelo. Você sabe o defeito e o valor antes de qualquer serviço.',
     ],
     sinais: [
       'Aquecedor não acende ou faz cliques sem chama',
@@ -39,48 +39,16 @@ export const servicos: Servico[] = [
     inclui: [
       'Diagnóstico técnico completo do aparelho',
       'Orçamento claro antes de iniciar o serviço',
+      'Regulagem de chama, gás e pressão de água',
       'Troca de peças com componentes de qualidade',
-      'Teste de funcionamento e de estanqueidade do gás',
+      'Teste de funcionamento, combustão e estanqueidade',
       'Garantia por escrito no serviço executado',
     ],
     faq: [
       { p: 'Quanto tempo leva o conserto de um aquecedor a gás?', r: 'A maioria dos consertos é resolvida na mesma visita, entre 1 e 2 horas. Quando é preciso encomendar uma peça específica, combinamos o retorno o quanto antes.' },
       { p: 'Vocês consertam aquecedor digital?', r: 'Sim. Atendemos aquecedores digitais e analógicos, de passagem e de acumulação, incluindo leitura de códigos de erro e reparo de placas.' },
-      { p: 'O conserto tem garantia?', r: 'Sim. Todo serviço executado pela Falcon Aquecedores sai com garantia por escrito.' },
-    ],
-  },
-  {
-    slug: 'manutencao-de-aquecedor-a-gas',
-    nome: 'Manutenção de Aquecedor a Gás',
-    titulo: 'Manutenção de Aquecedor a Gás no Rio de Janeiro',
-    descricao:
-      'Manutenção de aquecedor a gás no Rio de Janeiro: revisão técnica, regulagem, troca de componentes e testes de segurança. Todas as marcas, com garantia.',
-    h1: 'Manutenção de Aquecedor a Gás no Rio de Janeiro',
-    resumo: 'Revisão técnica, regulagem e troca de componentes para o aquecedor voltar a funcionar bem.',
-    icone: 'escudo',
-    foto: { src: '/img/servicos/tecnico-conserto-aquecedor', alt: 'Técnico da Falcon Aquecedores fazendo manutenção em aquecedor a gás Rinnai', retrato: true },
-    intro: [
-      'Quando o aquecedor começa a dar sinais de desgaste, como água oscilando de temperatura, demora para acender ou barulhos, é hora de uma manutenção técnica. A Falcon Aquecedores revisa o aparelho por completo e corrige o que estiver fora do lugar.',
-      'O técnico testa ignição, sensores, válvula de gás, fluxostato, placa e ventilador, regula chama e pressão e, quando preciso, troca componentes com peças compatíveis com o seu modelo. Tudo com orçamento aprovado antes.',
-    ],
-    sinais: [
-      'Água oscilando entre quente e fria',
-      'Demora ou falha para acender',
-      'Barulhos, estalos ou chiados',
-      'Aquecedor desligando durante o banho',
-      'Chama irregular ou amarelada',
-      'Código de erro no painel',
-    ],
-    inclui: [
-      'Revisão completa dos componentes',
-      'Regulagem de chama, gás e pressão de água',
-      'Troca de peças desgastadas quando necessário',
-      'Teste de combustão e de exaustão',
-      'Teste de vazamento e garantia no serviço',
-    ],
-    faq: [
-      { p: 'Qual a diferença entre manutenção e manutenção preventiva?', r: 'A manutenção corrige um aquecedor que já apresenta falhas. A manutenção preventiva é a revisão e limpeza anual, feita antes de o problema aparecer.' },
-      { p: 'Vocês fazem manutenção em aquecedor digital?', r: 'Sim. Atendemos aquecedores digitais e analógicos de todas as principais marcas.' },
+      { p: 'Qual a diferença entre esta manutenção e a manutenção preventiva?', r: 'Aqui corrigimos um aquecedor que já apresenta falhas. A manutenção preventiva é a limpeza e revisão anual, feita antes de o problema aparecer.' },
+      { p: 'O serviço tem garantia?', r: 'Sim. Todo serviço executado pela Falcon Aquecedores sai com garantia por escrito.' },
     ],
   },
   {
