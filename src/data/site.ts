@@ -8,7 +8,8 @@ export const site = {
   regiao: 'Rio de Janeiro e região', // usado em textos: "atendemos todo o Rio de Janeiro e região"
   telefone: '(21) 97562-5861',
   telefoneBotao: '021 97562-5861', // como o número aparece nos botões de ligar
-  telefoneLink: '+5521975625861',
+  telefoneLink: '021975625861', // usado nos links tel: dos botões de ligar
+  telefoneSchema: '+5521975625861', // formato internacional para o Google
   whatsapp: '5521975625861',
   whatsappMensagem: 'Olá! Vim pelo site da Falcon Aquecedores e gostaria de um orçamento.',
   endereco: {
