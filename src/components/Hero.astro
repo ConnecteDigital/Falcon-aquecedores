@@ -15,19 +15,40 @@ const {
   itens = ['Atendimento no mesmo dia', 'Todas as marcas', 'Garantia no serviço'],
 } = Astro.props;
 ---
-<section class:list={['hero', { 'hero--grande hero--foto': grande }]}>
-  {grande ? (
+{grande ? (
+  <section class="hero hero--home">
     <img
       class="hero__fundo"
-      src="/img/hero-tecnico-960.webp"
-      srcset="/img/hero-tecnico-600.webp 600w, /img/hero-tecnico-960.webp 960w"
-      sizes="(max-width: 960px) 100vw, 55vw"
-      width="960" height="1280" alt="Técnico da Falcon Aquecedores fazendo manutenção em aquecedor a gás"
+      src="/img/hero-falcon-1200.webp"
+      srcset="/img/hero-falcon-640.webp 640w, /img/hero-falcon-1200.webp 960w"
+      sizes="(max-width: 960px) 100vw, 60vw"
+      width="960" height="720" alt="Técnico da Falcon Aquecedores fazendo manutenção em aquecedor a gás Rinnai"
       fetchpriority="high" decoding="async"
     />
-  ) : (
-    <div class="hero__glow" aria-hidden="true"></div>
-  )}
+    <div class="container hero__in">
+      <div class="hero__txt">
+        <span class="hero__eyebrow">{etiqueta}</span>
+        <h1>{titulo}</h1>
+        <p class="hero__sub" set:html={subtitulo} />
+        <ul class="hero__lista">
+          {itens.map((i) => <li><Icon name="selo" size={20} /> {i}</li>)}
+        </ul>
+        <div class="hero__btns">
+          <a class="btn-duplo btn-duplo--wpp" href={whatsappUrl(mensagem)} target="_blank" rel="noopener">
+            <Icon name="whatsapp" size={34} />
+            <span><strong>Solicitar orçamento</strong><small>Fale agora pelo WhatsApp</small></span>
+          </a>
+          <a class="btn-duplo btn-duplo--ligar" href={`tel:${site.telefoneLink}`}>
+            <Icon name="telefone" size={30} />
+            <span><strong>Ligar agora</strong><small>{site.telefoneBotao}</small></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+) : (
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
   <div class="container hero__in">
     <div class="hero__txt">
       <span class="eyebrow"><Icon name="chama" size={16} /> {etiqueta}</span>
@@ -41,10 +62,9 @@ const {
         {itens.map((i) => <li><Icon name="check" size={18} /> {i}</li>)}
       </ul>
     </div>
-    {!grande && (
-      <div class="hero__mini" aria-hidden="true">
-        <img src="/img/logo-falcon-480.webp" width="405" height="422" alt="" fetchpriority="high" />
-      </div>
-    )}
+    <div class="hero__mini" aria-hidden="true">
+      <img src="/img/logo-falcon-480.webp" width="405" height="422" alt="" fetchpriority="high" />
+    </div>
   </div>
 </section>
+)}
