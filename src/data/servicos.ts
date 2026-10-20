@@ -16,14 +16,14 @@ export interface Servico {
 export const servicos: Servico[] = [
   {
     slug: 'conserto-e-manutencao-de-aquecedor-a-gas',
-    nome: 'Conserto e Manutenção de Aquecedor a Gás',
-    titulo: 'Conserto e Manutenção de Aquecedor a Gás no RJ',
+    nome: 'Conserto de Aquecedor a Gás',
+    titulo: 'Conserto de Aquecedor a Gás no Rio de Janeiro',
     descricao:
-      'Conserto e manutenção de aquecedor a gás no Rio de Janeiro e Niterói com técnico especializado. Diagnóstico preciso, peças originais e garantia. Chame no WhatsApp.',
-    h1: 'Conserto e Manutenção de Aquecedor a Gás',
-    resumo: 'Aquecedor não liga, desarma ou não esquenta? Diagnosticamos, consertamos e revisamos no mesmo dia.',
+      'Conserto de aquecedor a gás no Rio de Janeiro e Niterói com técnico especializado. Diagnóstico preciso, peças originais e garantia. Chame no WhatsApp.',
+    h1: 'Conserto de Aquecedor a Gás',
+    resumo: 'Aquecedor não liga, desarma ou não esquenta? Diagnosticamos e consertamos no mesmo dia.',
     icone: 'ferramenta',
-    foto: { src: '/img/servicos/tecnico-conserto-aquecedor', alt: 'Técnico da Falcon Aquecedores fazendo conserto e manutenção de aquecedor a gás Rinnai', retrato: true },
+    foto: { src: '/img/servicos/tecnico-conserto-aquecedor', alt: 'Técnico da Falcon Aquecedores fazendo conserto de aquecedor a gás Rinnai', retrato: true },
     intro: [
       'Quando o aquecedor a gás para de funcionar ou começa a dar sinais de desgaste, o banho quente vira problema. A Falcon Aquecedores faz o conserto e a manutenção de aquecedores de passagem e de acumulação, analógicos e digitais, com técnicos treinados e ferramentas de medição próprias.',
       'Começamos por um diagnóstico completo: verificamos ignição, sensor de chama, válvula de gás, fluxostato, placa eletrônica, ventilador e exaustão. Regulamos chama e pressão e, quando preciso, trocamos componentes com peças compatíveis com o seu modelo. Você sabe o defeito e o valor antes de qualquer serviço.',
@@ -47,7 +47,7 @@ export const servicos: Servico[] = [
     faq: [
       { p: 'Quanto tempo leva o conserto de um aquecedor a gás?', r: 'A maioria dos consertos é resolvida na mesma visita, entre 1 e 2 horas. Quando é preciso encomendar uma peça específica, combinamos o retorno o quanto antes.' },
       { p: 'Vocês consertam aquecedor digital?', r: 'Sim. Atendemos aquecedores digitais e analógicos, de passagem e de acumulação, incluindo leitura de códigos de erro e reparo de placas.' },
-      { p: 'Qual a diferença entre esta manutenção e a manutenção preventiva?', r: 'Aqui corrigimos um aquecedor que já apresenta falhas. A manutenção preventiva é a limpeza e revisão anual, feita antes de o problema aparecer.' },
+      { p: 'Qual a diferença entre o conserto e a manutenção preventiva?', r: 'No conserto corrigimos um aquecedor que já apresenta falhas. A manutenção preventiva é a limpeza e revisão anual, feita antes de o problema aparecer.' },
       { p: 'O serviço tem garantia?', r: 'Sim. Todo serviço executado pela Falcon Aquecedores sai com garantia por escrito.' },
     ],
   },
@@ -258,17 +258,17 @@ export const servicos: Servico[] = [
   },
   {
     slug: 'conserto-e-manutencao-de-boiler',
-    nome: 'Conserto e Manutenção de Boiler',
-    titulo: 'Conserto e Manutenção de Boiler no Rio de Janeiro',
+    nome: 'Venda e Manutenção de Boiler',
+    titulo: 'Venda e Manutenção de Boiler no Rio de Janeiro',
     descricao:
-      'Conserto e manutenção de boiler (reservatório térmico) no Rio de Janeiro: resistência, termostato, válvulas, ânodo de magnésio, drenagem e vazamentos. Boilers a gás, elétricos e solares.',
-    h1: 'Conserto e Manutenção de Boiler no Rio de Janeiro',
-    resumo: 'Conserto e manutenção de boilers a gás, elétricos e solares: resistência, termostato, válvulas e vazamentos.',
+      'Venda, instalação e manutenção de boiler (reservatório térmico) no Rio de Janeiro: resistência, termostato, válvulas, ânodo de magnésio, drenagem e vazamentos. Boilers a gás, elétricos e solares.',
+    h1: 'Venda e Manutenção de Boiler no Rio de Janeiro',
+    resumo: 'Venda e manutenção de boilers a gás, elétricos e solares: escolha do modelo, instalação, resistência, termostato e válvulas.',
     icone: 'tanque',
     foto: { src: '/img/servicos/boiler-reservatorio', alt: 'Boiler reservatório térmico de inox para água quente' },
     intro: [
       'O boiler (reservatório térmico) guarda a água quente da casa e trabalha junto com o aquecedor a gás, com a resistência elétrica ou com o sistema de aquecimento solar. Quando ele falha, a água não esquenta, acaba rápido ou o reservatório começa a vazar.',
-      'A Falcon Aquecedores faz o conserto e a manutenção de boilers de baixa e de alta pressão, horizontais e verticais. Testamos resistência, termostato e válvulas, localizamos vazamentos e, na manutenção periódica, drenamos e limpamos o reservatório e verificamos o ânodo de magnésio, que protege o boiler contra a corrosão.',
+      'A Falcon Aquecedores vende, instala e faz a manutenção de boilers de baixa e de alta pressão, horizontais e verticais. Ajudamos a escolher a capacidade certa para a sua casa e, nos boilers já instalados, testamos resistência, termostato e válvulas, localizamos vazamentos e, na manutenção periódica, drenamos e limpamos o reservatório e verificamos o ânodo de magnésio, que protege o boiler contra a corrosão.',
     ],
     sinais: [
       'Água do boiler não esquenta ou esquenta pouco',
@@ -286,6 +286,7 @@ export const servicos: Servico[] = [
       'Reparo de vazamentos em conexões',
     ],
     faq: [
+      { p: 'Vocês vendem e instalam boiler?', r: 'Sim. Indicamos a capacidade certa para o número de pessoas e pontos de água quente da casa e entregamos o boiler instalado, com teste de funcionamento.' },
       { p: 'Vocês consertam boiler solar?', r: 'Sim. Consertamos e fazemos manutenção em boilers ligados a aquecimento solar, a gás e elétrico, incluindo resistência de apoio, termostato e válvulas.' },
       { p: 'De quanto em quanto tempo o boiler precisa de manutenção?', r: 'O recomendado é uma revisão por ano, com drenagem do reservatório e verificação do ânodo de magnésio.' },
       { p: 'Vale a pena consertar ou trocar o boiler?', r: 'Na maioria dos casos o conserto resolve. Se o reservatório estiver furado por corrosão, mostramos as opções de troca com valores para você decidir.' },
@@ -300,7 +301,7 @@ export const servicos: Servico[] = [
     h1: 'Resina na Tubulação de Gás no Rio de Janeiro',
     resumo: 'Vedação da tubulação de gás por dentro, com resina, sem quebrar paredes e pisos.',
     icone: 'gota',
-    foto: { src: '/img/servicos/tecnico-falcon-bosch', alt: 'Técnico da Falcon Aquecedores verificando a tubulação de gás de um aquecedor', retrato: true },
+    foto: { src: '/img/servicos/tubulacao-gas-registros', alt: 'Tubulação de gás com registros e medidores, vedada com resina por dentro', retrato: true },
     intro: [
       'Tubulações de gás antigas podem apresentar pequenos vazamentos por corrosão ou falhas nas conexões que ficam dentro da parede. Trocar todo o encanamento significa quebrar paredes, pisos e azulejos, com obra demorada e cara.',
       'Com a aplicação de resina na tubulação, a Falcon Aquecedores veda o cano por dentro: limpamos a rede, aplicamos uma resina própria para gás que forma uma nova camada interna e, depois da cura, fazemos o teste de estanqueidade para confirmar que não há mais vazamento.',
